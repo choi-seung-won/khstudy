@@ -1,0 +1,24 @@
+package day0303;
+// 연산자 03
+// 비교연산자
+
+// 비교연산자는 2개의 값을 비교한다.
+
+public class Ex09Operator03 {
+
+    public static void main(String[] args) {
+        
+        // int number1 을 선언하고 5를 저장하자
+        int number1 = 5;
+        // int number2 를 선언하고 8을 저장하자
+        int number2 = 8;
+
+        // < 은 왼쪽 공간의 값이 오른쪽 값보다 작으면 true, 그 외에는 false가 연산된다.
+        System.out.println("1. < ");
+        System.out.println("number1 < 100: " + (number1 < 100));
+
+        System.out.println("number2 < number1: " + (number2 < number1));
+        
+    }
+
+}

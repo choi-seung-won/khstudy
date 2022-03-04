@@ -1,0 +1,38 @@
+package day0303;
+// 연산자 03
+// 비교연산자
+
+// 비교연산자는 2개의 값을 비교한다.
+
+public class Ex09Operator03 {
+
+    public static void main(String[] args) {
+        
+        // int number1 을 선언하고 5를 저장하자
+        int number1 = 5;
+        // int number2 를 선언하고 8을 저장하자
+        int number2 = 8;
+
+        // < 은 왼쪽 값이 오른쪽 값보다 작으면 true, 그 외에는 false가 연산된다.
+        // > 은 왼쪽 값이 오른쪽 값보다 크면 true, 그 외에는 false가 연산된다.
+        System.out.println("1. < ");
+        System.out.println("number1 < 100: " + (number1 < 100));
+        System.out.println("number2 < number1: " + (number2 < number1));
+        System.out.println("number1 < 5: " + (number1 < 5));
+        
+        // <= 은 왼쪽 값이 오른쪽 값보다 작거나 같으면 true, 그 외에는 false가 연산된다.
+        // >= 은 왼쪽 값이 오른쪽 값보다 크거나 같으면 true, 그 외에는 false가 연산된다.
+        
+        System.out.println("2. <=, >=");
+        System.out.println("number1 >= 100: " + (number1 >= 100));
+        System.out.println("number2 >= number1: " + (number2 >= number1));
+        System.out.println("number1 >= 5: " + (number1 >=5));
+        
+        // == 은 왼쪽 값과 오른쪽 값이 같으면 true, 아니면 false가 연산된다.
+        System.out.println("3. ==");
+        System.out.println("number1 == 5: " + (number1 == 5));
+        
+        System.out.println(number1=<5);
+    }
+
+}
