@@ -15,30 +15,47 @@ public class Ex09ResultChecker {
 
     public static void main(String[] args) {
 
+        // 프로그램에서 사용할 상수들
+        // 1. 통과 기준의 총점
+        final int SUM_MINIMUM = 210;
+        // 2. 통과 기준의 개별 점수
+        final int SCORE_MINIMUM = 60;
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("국어 점수를 입력하시오.");
 
-        double score_korean = scanner.nextDouble();
+        int score_korean = scanner.nextInt();
 
         System.out.println("영어 점수를 입력하시오.");
 
-        double score_english = scanner.nextDouble();
+        int score_english = scanner.nextInt();
 
         System.out.println("수학 점수를 입력하시오.");
 
-        double score_math = scanner.nextDouble();
+        int score_math = scanner.nextInt();
 
-        if (score_korean < 60) {
-            System.out.println("탈락");
-        } else if (score_english < 60) {
-            System.out.println("탈락");
-        } else if (score_math < 60) {
-            System.out.println("탈락");
+        // 탈락 조건.
+        // 총점이 210미만일경우 (=평균이 70미만일경우)
+        // 국어/영어/수학점수중 하나의 점수가 60점 미만일경우
 
+        int sum = score_korean + score_english + score_math;
+
+        /*
+         * if (sum < 210) { System.out.println("탈락"); } else if (score_korean < 60) {
+         * System.out.println("탈락"); } else if (score_english < 60) {
+         * System.out.println("탈락"); } else if (score_math < 60) {
+         * System.out.println("탈락"); } else { System.out.println("합격"); }
+         */
+
+        if (sum < SUM_MINIMUM || score_korean < SCORE_MINIMUM || score_english < SCORE_MINIMUM
+                || score_math < SCORE_MINIMUM) {
+            System.out.println("탈락입니다.");
         } else {
-            System.out.println("합격");
+            System.out.println("합격입니다.");
         }
+
+        scanner.close();
 
     }
 

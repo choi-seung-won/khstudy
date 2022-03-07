@@ -1,0 +1,75 @@
+package day0307;
+// 사용자로부터 이름,나이,키, 몸무게를 차례대로 입력받아서
+// BMI를 계산하고 비만도 결과값을 출력하는 프로그램을 작성하세요.
+
+// BMI 공식은 몸무게(kg) / 키(m) / 키(m) 입니다.
+
+//기네스북에 따르자면, 세계에서 가장 키가 컸던 사람은 2.72m였습니다
+//기네스북에 따르자면, 세계에서 가장 무거웠던 사람은 635kg였습니다.
+
+//BMI에 따른 비만도
+//18.5미만: 저체중
+//18.5이상 23미만:정상체중
+//23이상 25미만:과체중
+//25이상: 미만
+
+import java.util.Scanner;
+
+public class Ex04BmiChecker {
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("이름을 입력하세요");
+        System.out.print(">");
+        
+        String name = scanner.nextLine();
+        
+        System.out.println("나이를 입력하세요");
+        System.out.print(">");
+        
+        int age = scanner.nextInt();
+        scanner.nextLine();
+        
+        System.out.println("키를 입력하세요");
+        System.out.print(">");
+        
+        double height = scanner.nextDouble()*0.01;
+        scanner.nextLine();
+        
+        if(height > 2.72) {
+            System.out.println("잘못된 값입니다.");
+        } else {
+            System.out.println("몸무게를 입력하세요");
+            System.out.print(">");
+            
+            double weight = scanner.nextDouble();
+            scanner.nextLine();
+            
+            if(weight > 635) {
+                System.out.println("잘못된 값입니다.");
+            }else {
+                double BMI = weight / height / height ;
+                System.out.printf("BMI: %f \n",BMI);
+                
+                if(BMI > 25) {
+                    System.out.print("비만");
+                }else if(BMI >= 23 && BMI < 25) {
+                    System.out.print("과체중");
+                }else if(BMI >= 18.5 && BMI < 23) {
+                    System.out.print("정상체중");
+                }else {
+                    System.out.print("저체중");
+                }
+            }
+            System.out.println("입니다.");
+        }
+        
+        
+     scanner.close();
+     
+
+    }
+
+}
