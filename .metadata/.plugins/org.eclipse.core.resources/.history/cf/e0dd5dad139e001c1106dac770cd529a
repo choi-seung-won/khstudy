@@ -63,39 +63,30 @@ public class Ex12GradeBook {
                 scanner.nextLine();
                 
                 
-                while(korean > 100 || korean <0 ){
+                if(korean > 100 || korean <0 ){
                     System.out.println("잘못된 입력값입니다.");
-                    System.out.println("국어점수를 입력하시오");
-                    System.out.print(">");
-                    korean = scanner.nextDouble();
-                    scanner.nextLine();
+                    break;
                 }
                 
                 System.out.println("영어점수 입력");
                 System.out.print(">");
                 english = scanner.nextDouble();
                 
-                while(english > 100 || korean <0 ){
+                if(english > 100 || korean <0 ){
                     System.out.println("잘못된 입력값입니다.");
-                    System.out.println("영어점수를 입력하시오");
-                    System.out.print(">");
-                    english = scanner.nextDouble();
-                    scanner.nextLine();
+                    break;
                 }
                 
                 System.out.println("수학점수 입력");
                 System.out.print(">");
                 math = scanner.nextDouble();
-                while(math > 100 || math <0 ){
+                if(math > 100 || math <0 ){
                     System.out.println("잘못된 입력값입니다.");
-                    System.out.println("수학점수를 입력하시오");
-                    System.out.print(">");
-                    math = scanner.nextDouble();
-                    scanner.nextLine();
-                }
+                    break;
+                }else {
                     
                     System.out.println("입력종료.");
-                
+                }
                 
                     
                 
@@ -111,14 +102,13 @@ public class Ex12GradeBook {
                 double sum = korean + math + english;
                 double avg = sum / 3;
 
-                System.out.printf("번호: %03d 이름: %s 국어: %03.2f 영어: %03.2f 수학: %03.2f \n 총점 : %03.2f 평균 : %06.2f \n",num,name,korean,
+                System.out.printf("번호: %d 이름: %s 국어: %.2f 영어: %.2f 수학: %.2f \n 총점 : %.2f 평균 : %.2f \n",num,name,korean,
                         english,math,sum,avg);
                 
                 
             } else if (userChoice == 3) {
                 System.out.println("사용해주셔서 감사합니다.");
-                scanner.close();
-                break;
+                return;
             }
         }
 
