@@ -26,32 +26,30 @@ import java.util.*;
 public class Ex12GradeBook {
 
     public static void main(String[] args) {
-        
-        
+
         int num = 0;
         String name = "none";
-        double korean = 0,math = 0,english = 0;
-        
+        double korean = 0, math = 0, english = 0;
+        // 사용자가 입력했는지 안했는지를 저장할 boolean 변수
+
+        boolean inputSwitch = false;
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            
 
-
-            
             System.out.println("1. 입력 2. 출력 3. 종료");
             System.out.print("> ");
             int userChoice = scanner.nextInt();
 
             if (userChoice == 1) {
-                
+
                 System.out.println("번호");
                 System.out.print(">");
-                
+
                 num = scanner.nextInt();
                 scanner.nextLine();
-                
+
                 System.out.println("이름");
                 System.out.print(">");
 
@@ -61,67 +59,59 @@ public class Ex12GradeBook {
                 System.out.print(">");
                 korean = scanner.nextDouble();
                 scanner.nextLine();
-                
-                
-                while(korean > 100 || korean <0 ){
+
+                while (korean > 100 || korean < 0) {
                     System.out.println("잘못된 입력값입니다.");
                     System.out.println("국어점수를 입력하시오");
                     System.out.print(">");
                     korean = scanner.nextDouble();
                     scanner.nextLine();
                 }
-                
+
                 System.out.println("영어점수 입력");
                 System.out.print(">");
                 english = scanner.nextDouble();
-                
-                while(english > 100 || korean <0 ){
+
+                while (english > 100 || korean < 0) {
                     System.out.println("잘못된 입력값입니다.");
                     System.out.println("영어점수를 입력하시오");
                     System.out.print(">");
                     english = scanner.nextDouble();
                     scanner.nextLine();
                 }
-                
+
                 System.out.println("수학점수 입력");
                 System.out.print(">");
                 math = scanner.nextDouble();
-                while(math > 100 || math <0 ){
+                while (math > 100 || math < 0) {
                     System.out.println("잘못된 입력값입니다.");
                     System.out.println("수학점수를 입력하시오");
                     System.out.print(">");
                     math = scanner.nextDouble();
                     scanner.nextLine();
                 }
-                    
-                    System.out.println("입력종료.");
-                
-                
-                    
-                
-               
+
+                inputSwitch = true;
+
+                System.out.println("입력종료.");
 
             } else if (userChoice == 2) {
                 
-                if(num == 0) {
-                    System.out.println("아직 입력된 정보가 없습니다.");
-                    return;
-                }
-              
+                if (inputSwitch == true){
+
                 double sum = korean + math + english;
                 double avg = sum / 3;
 
-                System.out.printf("번호: %03d 이름: %s 국어: %03.2f 영어: %03.2f 수학: %03.2f \n 총점 : %03.2f 평균 : %06.2f \n",num,name,korean,
-                        english,math,sum,avg);
-                
-                
+                System.out.printf("번호: %03d 이름: %s 국어: %03.2f 영어: %03.2f 수학: %03.2f \n 총점 : %03.2f 평균 : %06.2f \n", num,
+                        name, korean, english, math, sum, avg);
+                } else {
+                    System.out.println("아직 입력된 정보가 없습니다.");
+                }
             } else if (userChoice == 3) {
                 System.out.println("사용해주셔서 감사합니다.");
-                scanner.close();
                 break;
             }
         }
 
     }
-
 }

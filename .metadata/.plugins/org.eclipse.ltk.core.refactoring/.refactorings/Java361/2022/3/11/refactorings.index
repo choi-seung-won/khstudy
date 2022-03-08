@@ -6,3 +6,10 @@
 1646642467996	Rename local variable 'MAX_WEIGHT'
 1646653648024	Copy compilation unit
 1646653665805	Rename type 'Ex10GradeBook'
+1646725017857	Rename local variable 'clear'
+1646726951652	Rename local variable 'selectivevalue_user'
+1646727184338	Rename local variable 'runtimechecker'
+1646727318946	Rename local variable 'userNumber'
+1646727527145	Rename local variable 'userScore'
+1646743006960	Rename type 'StarPrint04'
+1646743021723	Rename type 'StartPrinter01'

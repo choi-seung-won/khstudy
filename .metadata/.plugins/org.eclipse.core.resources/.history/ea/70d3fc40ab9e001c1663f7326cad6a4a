@@ -1,0 +1,10 @@
+package day0308;
+
+public class Ex01Random {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+    }
+
+}

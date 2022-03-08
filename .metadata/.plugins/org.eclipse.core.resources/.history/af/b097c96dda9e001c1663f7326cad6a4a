@@ -1,0 +1,42 @@
+package day0308;
+import java.util.*;
+
+public class StarPrint04 {
+    
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("별 라인수 입력");
+        System.out.print("> ");
+        int userInput = scanner.nextInt();
+        scanner.nextLine();
+        
+        String star = "";
+        
+        int jloopVar = userInput;
+        
+        
+        for (int i = 0 ; i < userInput ; i ++) {
+            
+
+            for (int j = jloopVar ; j > 0 ;j --) {
+                
+                star += "*";
+
+                
+            }
+            System.out.println(star);
+            jloopVar --;
+            
+
+            
+        
+        }
+        
+        
+        
+        
+    }
+
+}

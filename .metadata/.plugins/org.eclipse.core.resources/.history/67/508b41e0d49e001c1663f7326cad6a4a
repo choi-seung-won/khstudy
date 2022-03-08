@@ -1,0 +1,36 @@
+package day0308;
+import java.util.*;
+public class StarPrinter03 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("***별라인수 입력***");
+        System.out.print(">");
+        
+        int userInput = scanner.nextInt();
+        scanner.nextLine();
+        
+
+        String stars = "";
+        
+        for( int i = 1 ;i <= userInput ; i ++ ) {
+            
+            
+            for(int j = 1 ; j <= userInput ; j ++) {
+                
+                
+                System.out.print(" ");
+                
+                
+            }
+            stars += "*";
+            System.out.print(stars);
+
+            
+        }
+
+    }
+
+}
