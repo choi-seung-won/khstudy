@@ -1,0 +1,110 @@
+package day0310;
+
+// 로또 번호 추첨기 ver 1.0
+// 배열이아니라 int변수만 사용해서 만든 버전
+
+import java.util.*;
+
+public class Ex02Lotto {
+
+    public static void main(String[] args) {
+
+        // 가능한 로또 번호의 최소값
+        final int LOTTO_MIN = 1;
+        // 가능한 로또 번호의 최대값
+        final int LOTTO_MAX = 45;
+
+        // 랜덤숫자를뽑는데 사용할 random 클래스변수
+        Random random = new Random();
+
+        // 로또 번호를 저장할 int 변수 6개를 선언해보자
+        int lotto1, lotto2, lotto3, lotto4, lotto5, lotto6;
+
+        // int 변수 lotto1에 1부터 45사이의 랜덤한 숫자를 저장하자
+
+        lotto1 = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+
+        // int 변수 lotto2에 저장할 랜덤한 숫자를 뽑아보자.
+        // 단, 이때에는 lotto1과 같은 숫자를 뽑을 시에 같은 숫자가 아닐 때까지
+        // 다시 뽑는다.
+
+        // 임시로 랜덤한 숫자를 저장할 int변수 temp
+        int temp;
+
+        // temp에 1~45사이의 랜덤한 숫자를 저장한다.
+
+        temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+
+        // while을 통하여 temp가 lotto1과 같으면 다시 랜덤한 숫자를 뽑아서
+        // temp에 저장한다
+        while (temp == lotto1) {
+            temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+
+        }
+
+        // temp의 현재 값을 lotto2에 저장한다.
+
+        lotto2 = temp;
+
+        // lotto3에 들어갈 숫자를 정한다.
+        // 위에와 똑같은 방법을 쓰지만
+        // 이번에는 lotto1,lotto2와 중복되지 않는 숫자를 뽑아서 저장한다.
+
+        temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+
+        while (temp == lotto1 || temp == lotto2) {
+            temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+        }
+
+        lotto3 = temp;
+
+        // lotto4에 들어갈 숫자를 정한다.
+
+        // 위에와 똑같은 방법을 쓰지만
+        // 이번에는 lotto1, lotto2 , lotto3과 중복되지 않는 숫자를 뽑아서 저장한다.
+
+        temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+        while (temp == lotto1 || temp == lotto2 || temp == lotto3) {
+            temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+        }
+
+        lotto4 = temp;
+
+        // lotto5에 들어갈 숫자를 정한다.
+
+        // 위에와 똑같은 방법을 쓰지만
+        // 이번에는 lotto1, lotto2 , lotto3, lotto4와 중복되지 않는 숫자를 뽑아서 저장한다.
+
+        temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+
+        while (temp == lotto1 || temp == lotto2 || temp == lotto3 || temp == lotto4) {
+            temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+        }
+
+        lotto5 = temp;
+
+        // lotto6에 들어갈 숫자를 정한다.
+
+        // 위에와 똑같은 방법을 쓰지만
+        // 이번에는 lotto1, lotto2 , lotto3, lotto4, lotto 5와 중복되지 않는 숫자를 뽑아서 저장한다.
+
+        temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+
+        while (temp == lotto1 || temp == lotto2 || temp == lotto3 || temp == lotto4 || temp == lotto5) {
+            temp = random.nextInt(LOTTO_MAX) + LOTTO_MIN;
+        }
+
+        lotto6 = temp;
+        
+        System.out.println("정렬 전 각 변수의 값");
+        System.out.println("lotto1: " + lotto1);
+        System.out.println("lotto2: " + lotto2);
+        System.out.println("lotto3: " + lotto3);
+        System.out.println("lotto4: " + lotto4);
+        System.out.println("lotto5: " + lotto5);
+        System.out.println("lotto6: " + lotto6);
+        System.out.println("----------------------------");
+
+    }
+
+}

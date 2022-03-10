@@ -1,0 +1,43 @@
+package day0310;
+import java.util.*;
+public class StarPrinter09 {
+
+    
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("라인수 입력");
+        System.out.print(" > ");
+        
+        int userInput = scanner.nextInt();
+        
+        
+        for ( int i = 1 ; i <= userInput ; i ++) {
+            
+            String star = "";
+            
+            if(i < userInput) {
+                
+                int blankwidth = userInput - i ;
+                int starwidth = 2*userInput + 1;
+                
+                // blank처리
+                for(int j = 1 ; j <= blankwidth; j ++) {
+                    star += " ";
+                }
+                // star처리
+                for(int j = i; j <= starwidth; j ++) {
+                    
+                    star += "*";
+                    
+                }
+                System.out.println(star);
+                
+            }else {
+                
+            }
+                
+        }
+    }
+}
