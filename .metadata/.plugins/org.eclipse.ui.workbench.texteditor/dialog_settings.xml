@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="// 1. 랜덤"/>
 		<list key="findhistory">
+			<item value="랜덤 숫자를 하나"/>
+			<item value="// 1. 랜덤 숫자를 하나"/>
+			<item value="// 1. 랜덤"/>
 			<item value="참조"/>
 		</list>
 		<list key="replacehistory">

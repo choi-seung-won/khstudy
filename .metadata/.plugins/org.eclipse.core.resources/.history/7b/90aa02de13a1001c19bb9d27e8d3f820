@@ -1,0 +1,42 @@
+package day0311;
+// 로또 번호 추첨기 ver 4.0
+// 사용자가 숫자를 뽑으면
+// 컴퓨터의 숫자들과 비교하여
+// 사용자 숫자, 컴퓨터 숫자, 총 맞은 갯수를 출력해주는 버전
+
+//5 - 20
+// 고려해볼것 : [1,2,3,4,5,6]과 [2,3,4,5,6,7] 중 맞은 갯수를 찾는 방법
+
+import java.util.*;
+public class Ex02Lotto04 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        
+        Scanner scanner = new Scanner(System.in);
+
+        final int MinNum = 1;
+        final int MaxNum = 45;
+        final int LotteryLength = 6;
+        
+        int[] LotteryNum = new int[LotteryLength];
+        
+        Random random = new Random();
+        
+        
+        int cpu_num = random.nextInt();
+        
+        System.out.println("숫자를 뽑으시오");
+        System.out.print(">");
+        
+        int user_num = random.nextInt();
+        
+        for(int i = 0 ; i < LotteryLength ; i ++ ) {
+            
+        }
+        
+        
+
+    }
+
+}

@@ -1,0 +1,33 @@
+package day0311;
+// 다차원 배열(Multi dimensional Array)
+// 
+// 배열이란?
+// 같은 자료형을 가지고있는 것들을 묶어놓은 데이터타입
+
+// 다차원 배열이란?
+// 똑같은 데이터타입의 배열을 여러개 묶어놓은 배열
+
+// 다차원 배열의 선언 방법과 초기화 방법
+// 2차원 배열을 기준으로 설명하자면
+// 데이터타입[][] 배열이름 = new 데이터타입[모여있는 1차원 배열의 총 갯수][각배열의길이]
+// 가 된다.
+
+
+import java.util.*;
+public class Ex03MDArray {
+    public static void main(String[] args) {
+        // 1차원 배열이 4개 모여있고, 각 배열의 길이가 3인
+        // int 2차원배열 array를 선언하고 초기화
+        int[][] array = new int[4][3];
+        
+        // array의 각 인덱스번 칸에 어떤값이 들어가 있는지 출력해보자
+        
+        for(int i = 0 ; i < array.length ; i ++) {
+            System.out.println(i+"번: "+array[i]);//주소값출력
+        }
+        
+        // array의 0번째 배열에 0 번 인덱스에 저장된 값을 출력해보자
+        System.out.println("array[0][0] :  "+array[0][0] );
+    }
+
+}

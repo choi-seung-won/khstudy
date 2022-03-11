@@ -1,0 +1,149 @@
+package day0311;
+// 로또 번호 추첨기 ver5
+// 사용자가 한번에 한게임만 하는 것이 아니라
+// 사용자가 지정한 횟수의 게임을 할 수 있게 코드를 작성하시오.
+
+// 단 , 각 게임을 사용자가 매번 수동 입력을 하는것이 아니라
+// 1. 자동 2. 수동중에 하나 선택해서
+// 자동을 선택하면 해당 게임은 숫자가 자동으로 배정이 되고
+// 수동을 선택하면 해당 게임은 사용자가 직접 숫자를 배정하게 만드시오.
+
+// 또한 결과창에서는 사용자의 각 게임옆에 맞은 갯수를 같이 출력해주시오.
+// 7 - 30
+
+import java.util.*;
+
+public class Ex04Lotto05 {
+    
+    public static void main(String[] args) {
+    
+        
+        Scanner scanner = new Scanner(System.in);
+    
+        final int MinNum = 1;
+        final int MaxNum = 45;
+        final int LotteryLength = 6;
+        
+        
+        //게임횟수지정 및 변수선언
+        
+        int gameloop;
+        
+        System.out.println("게임횟수 입력");
+        System.out.print("> ");
+        gameloop = scanner.nextInt();
+        scanner.nextLine();
+        Random random = new Random() ;
+        
+        
+        for(int i = 1 ;i < gameloop ; i ++) {
+            
+            System.out.println("자동(1) 또는 수동(2) 선택 ");
+            System.out.print("> ");
+            
+            int gametype = scanner.nextInt();
+            scanner.nextLine();
+            int[] cpu_num = new int[LotteryLength];
+            int[] user_num_array = new int[LotteryLength];
+
+            if( gametype == 1) {
+                //컴퓨터난수배열정리(gametype1,2무관,통합)
+                for(int j = 0 ; j < cpu_num.length;) {
+                    int temp = random.nextInt(LotteryLength) + MinNum;
+                    boolean numberswitch = true;
+                    
+                    for(int k = 0 ; k < j ; k ++) {
+                        if(temp == cpu_num[k]) {
+                            numberswitch = false;
+                        }
+                    }
+                    if(numberswitch) {
+                        cpu_num[j] = temp ; 
+                        j ++;
+                    }
+                }
+                //컴퓨터난수배열 정렬 bubble sort
+                for ( int j = 0 ; j <cpu_num.length - 1; j ++) {
+                    if(cpu_num[i] > cpu_num[i+1]) 
+                    {
+                        int temp = cpu_num[i];
+                        cpu_num[i] = cpu_num[i+1];
+                        cpu_num[i+1] = temp;
+                        i = -1;
+                    }
+                }
+                //통합 여기까지
+                
+                //유저 난수배열
+                //수정시작
+                for(int j = 0 ; j < user_num_array.length;) {
+                    int temp = random.nextInt(LotteryLength) + MinNum;
+                    boolean numberswitch = true;
+                    
+                    for(int k = 0 ; k < j ; k ++) {
+                        if(temp == user_num_array[k]) {
+                            numberswitch = false;
+                        }
+                    }
+                    if(numberswitch) {
+                        user_num_array[j] = temp ; 
+                        j ++;
+                    }
+                }
+                //컴퓨터난수배열 정렬 bubble sort
+                for ( int j = 0 ; j <user_num_array.length - 1; j ++) {
+                    if(user_num_array[i] > user_num_array[i+1]) 
+                    {
+                        int temp = user_num_array[i];
+                        user_num_array[i] = user_num_array[i+1];
+                        user_num_array[i+1] = temp;
+                        i = -1;
+                    }
+                }
+            }else if ( gametype == 2) {
+                
+            }else {
+                System.out.println("잘못된 값이므로 다시 입력");
+            }
+            int count = 0;
+            
+            for( int j = 0 ; j < user_num_array.length; j ++) {
+                for(int k = 0 ; k <cpu_num.length; k ++) {
+                    if(user_num_array[j] == cpu_num[k]) {
+                        count ++;
+                    }
+                }
+            }
+            // 출력구문
+            
+            System.out.println("컴퓨터의 숫자: [");
+            for(int j = 0 ; j < cpu_num.length; j ++) {
+                System.out.printf("%2d", cpu_num[j]);
+                if(j < cpu_num.length - 1) {
+                    System.out.print(" , ");
+                }else {
+                    System.out.println("]");
+                }
+                
+            }
+            
+            System.out.print("사용자의 숫자: [");
+            for(int j = 0 ; j < user_num_array.length ; j++) {
+                System.out.printf("%2d", user_num_array[j]);
+            if ( j < user_num_array.length - 1) {
+                System.out.println(", ");
+            }else {
+                System.out.println("]");
+            }
+        }
+            System.out.println("스코어: " + count);
+        
+        
+    
+    
+    }
+    
+    
+
+}
+}
