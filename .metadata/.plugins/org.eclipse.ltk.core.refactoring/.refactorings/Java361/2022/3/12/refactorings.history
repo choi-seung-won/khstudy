@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;homework.Ex01GradeBook.result(...)&apos; to &apos;printInfo&apos;&#x0D;&#x0A;- Original project: &apos;Java361&apos;&#x0D;&#x0A;- Original element: &apos;homework.Ex01GradeBook.result(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;homework.Ex01GradeBook.printInfo(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;result&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;homework{Ex01GradeBook.java[Ex01GradeBook~result~QString;" name="printInfo" references="true" stamp="1647241110888" version="1.0"/>
+</session>

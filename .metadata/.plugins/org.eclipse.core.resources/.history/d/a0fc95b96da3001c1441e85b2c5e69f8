@@ -1,0 +1,48 @@
+package util;
+
+import java.util.*;
+
+// Scanner 클래스의 메소드를 사용할 때
+// 편리해질 메소드를 정의해둔 ScannerUtil 클래스
+public class ScannerUtil {
+    // 1. 사용자가 출력하고자 하는 메시지를 양식에맞추어출력해줄
+    // printMessage()
+
+    public static void printMessage(String message) {
+        System.out.println("----------------------");
+        System.out.println(message);
+        System.out.println("----------------------");
+        System.out.print("> ");
+
+    }
+
+    // 2. 사용자가 출력하고자 하는 메시지를 출력하고
+    // int 데이터타입의 값을 입력 받아서 리턴해주는
+    // nextInt()
+
+    public static int nextInt(Scanner scanner, String message) {
+
+        printMessage(message);
+
+        int temp = scanner.nextInt();
+
+        return temp;
+
+    }
+
+    // 3. 특정 범위의 int값만 입력을 받아 리턴하는
+    // nextInt(Scanner,String,int,int)
+    public static int nextInt(Scanner scanner, String message, int min, int max) {
+        int temp = nextInt(scanner, message);
+
+        while (!(temp >= min && temp <= max)) {
+            System.out.println("잘못 입력하셨습니다.");
+            temp = nextInt(scanner, message);
+
+        }
+
+        return temp;
+
+    }
+
+}
