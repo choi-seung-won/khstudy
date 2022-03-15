@@ -1,0 +1,28 @@
+package day0315;
+// 구조체(Struct)
+// 구조체란 2세대 언어에서
+// 여러가지 데이터타입을 모아서 하나의 새로운 데이터타입을 만드는 방법이다.
+// 예를 들어서, 학생이란 데이터타입을 만들고 그 데이터타입 안에 번호, 이름,국어,영어,수학을 저장할
+// 공간을 추가로 마련해주는 방법이다 .
+
+import struct.Student;
+
+public class Ex02Struct {
+    
+    public static void main(String[] args) {
+        
+        // 우리가 만든 Student "구조체" 변수를 선언과 초기화 할 때에는
+        // 일반적인 클래스 변수 선언과 초기화를 할때와 코드가 똑같다.
+        
+        Student s = new Student();
+        
+        // 우리가 만든 student 구조체 변수 s에 각 공간에 값을 넣을 땡는
+        // s.~~~ = 값; 으로 넣는다.
+        s.id = 3;
+        s.name = "조재영";
+        s.korean = 80;
+        s.english = 81;
+        s.math = 81;
+    }
+
+}

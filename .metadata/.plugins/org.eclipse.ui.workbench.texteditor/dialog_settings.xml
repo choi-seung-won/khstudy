@@ -6,8 +6,14 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="// 1. 랜덤"/>
+		<item key="selection" value="id"/>
 		<list key="findhistory">
+			<item value="id"/>
+			<item value="id ="/>
+			<item value="add"/>
+			<item value="set"/>
+			<item value="problem"/>
+			<item value="printInfo"/>
 			<item value="랜덤 숫자를 하나"/>
 			<item value="// 1. 랜덤 숫자를 하나"/>
 			<item value="// 1. 랜덤"/>

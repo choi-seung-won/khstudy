@@ -69,16 +69,13 @@ public class Ex04GradeBook2 {
             } else {
                 System.out.println("잘못된 값입니다.");
             }
-
         }
-
     }
 
     public static void insertInfo() {
 
         if (currentIndex < STUDENT_SIZE) {
             // 아직5명을입력하지않았을경우
-            
             System.out.println("==========================");
             System.out.printf("%d번 학생 입력하기\n",currentIndex+1);
             System.out.println("==========================");

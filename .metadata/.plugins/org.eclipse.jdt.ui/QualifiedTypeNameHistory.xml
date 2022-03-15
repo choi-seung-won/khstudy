@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.concurrent.ThreadLocalRandom"/>
     <fullyQualifiedTypeName name="java.io.LineNumberInputStream"/>
+    <fullyQualifiedTypeName name="javax.print.attribute.standard.PrinterMessageFromOperator"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="struct.Student"/>
+    <fullyQualifiedTypeName name="javax.swing.text.Utilities"/>
+    <fullyQualifiedTypeName name="util.ArrayUtil"/>
+    <fullyQualifiedTypeName name="util.ScannerUtil"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,38 @@
+package homework;
+// 숙제 2.
+// 지금 현재 util.ArrayUtil에는 int[]을 기준으로한 동적할당 메소드만 존재한다.
+// String[]을 기준으로 한 동적할당 메소드(A부터 K까지) 구현하시오
+// 단, remove의경우 이름을 통일시켜준다.
+
+import java.util.*;
+import util.ArrayUtil;
+public class Ex04ArrayUtil {
+
+    public static void main(String[] args) {
+        //String 배열 기준의 ArrayUtil 메서드를 실험해보는 클래스
+        String[] arr = new String[3];
+        arr[0] = "abc";
+        arr[1] = "bcd";
+        arr[2] = "cde";
+        
+        System.out.println("2. String[]");
+        System.out.println("A. size()");
+        System.out.println("2-A: " + ArrayUtil.size(arr));
+        System.out.println("------------------------\n");
+        
+        System.out.println("B. isEmpty()");
+        System.out.println("2-B: " + ArrayUtil.isEmpty(arr));
+        System.out.println("------------------------\n");
+        
+        System.out.println("C. get()");
+        System.out.println("get(arr,0): " + ArrayUtil.get(arr,0));
+        System.out.println("------------------------\n");
+        
+        System.out.println("D. contains()");
+        System.out.println("contains(\"abc\"): " + ArrayUtil.contains(arr,"abc"));
+        System.out.println("contains(\"aaa\"): " + ArrayUtil.contains(arr,"aaa"));
+        System.out.println("contains(new String(\"abc\")): " + ArrayUtil.contains(arr,new String("abc")));// new = 새로운주소값 생성.
+        System.out.println("------------------------\n");
+        
+    }
+}

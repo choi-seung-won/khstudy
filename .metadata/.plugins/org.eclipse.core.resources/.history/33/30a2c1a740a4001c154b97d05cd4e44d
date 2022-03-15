@@ -1,0 +1,91 @@
+package day0315;
+
+// 동적할당을 사용하는
+// 학생 성적 입출력 프로그램을 작성하시오
+// 단, 메인 메소드의 경우 코드를 최소화 시키시오.
+import java.util.*;
+import util.*;
+
+public class Ex01GradeBook {
+
+    public static final int STUDENT_SIZE = 0;
+    public static final int SUBJECT_SIZE = 5;
+    public static final int SCORE_MIN = 0;
+    public static final int SCORE_MAX = 100;
+
+    // 전역 변수
+    // 1. 입력을 처리할 Scanner 클래스 변수
+    public static Scanner scanner;
+    // 2. 학생 번호를 저장할 배열
+    public static int[] idArray;
+    // 3. 학생 이름을 저장할 배열
+    public static String[] nameArray;
+    // 4. 학생의 국어점수를 저장할 배열
+    public static int[] koreanArray;
+    // 5. 학생의 영어점수를 저장할 배열
+    public static int[] englishArray;
+    // 6. 학생의 수학점수를 저장할 배열
+    public static int[] mathArray;
+    // 7. 각 배열의 현재 입력할 공통 인덱스
+    public static int currentIndex = 0;
+
+    public static void main(String[] args) {
+
+        scanner = new Scanner(System.in);
+        int userChoice = scanner.nextInt();
+        String message = "";
+        idArray = new int[STUDENT_SIZE];
+        nameArray = new String[STUDENT_SIZE];
+        koreanArray = new int[STUDENT_SIZE];
+        englishArray = new int[STUDENT_SIZE];
+        mathArray = new int[STUDENT_SIZE];
+
+        while (true) {
+            System.out.println("1. 입력 2. 출력 3. 종료");
+            if (userChoice == 1) {
+
+                if (currentIndex < STUDENT_SIZE) {
+                    message = "%d번째 학생의 ID번호를 입력하시오" + currentIndex;
+                    idArray[currentIndex] = ScannerUtil.nextInt(scanner, message);
+                    message = "%d번째 학생의 이름을 입력하시오" + currentIndex;
+                    nameArray[currentIndex] = ScannerUtil.nextLine(scanner, message);
+                    message = "%d번째 학생의 국어점수를 입력하시오" + currentIndex;
+                    koreanArray[currentIndex] = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
+                    message = "%d번째 학생의 영어점수를 입력하시오" + currentIndex;
+                    englishArray[currentIndex] = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
+                    message = "%d번째 학생의 수학점수를 입력하시오" + currentIndex;
+                    mathArray[currentIndex] = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
+
+                    currentIndex++;
+                }
+
+            } else if (userChoice == 2) {
+
+                for (int i = 0; i < currentIndex; i++) {
+
+                    System.out.printf("%d번째 학생의 ID , 이름 ", idArray[i], nameArray[i]);
+                    System.out.printf("국어점수 : %02d , 영어점수 : %02d , 수학점수 : %02d \n ", koreanArray[i], englishArray[i],
+                            mathArray[i]);
+                }
+
+            } else if (userChoice == 3) {
+                System.out.println("사용해주셔서 감사합니다.");
+                break;
+
+            } else {
+                System.out.println("잘못 입력하셨습니다.");
+            }
+
+        }
+
+    }
+
+    public static void printInfo() {
+
+    }
+
+    public static void inputInfo() {
+
+    }
+
+}

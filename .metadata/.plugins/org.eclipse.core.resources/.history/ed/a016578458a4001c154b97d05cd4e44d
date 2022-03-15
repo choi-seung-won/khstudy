@@ -1,0 +1,91 @@
+package day0315;
+// Student 구조체를 사용한
+
+// 학생 관리 프로그램을 만들어보세여
+// 45분까지
+
+import java.util.*;
+import util.*;
+import struct.Student;
+
+public class Ex03GradeBook03 {
+
+    // 전역 상수
+
+    // 1. 가능한 최소점수
+    public static final int SCORE_MIN = 0;
+    // 2. 가능한 최대 점수
+    public static final int SCORE_MAX = 100;
+    // 3. 과목의 숫자
+    public static final int SUBJECT_SIZE = 3;
+
+    // 전역변수
+
+    public static Scanner scanner;
+
+    // 정보를 저장할 Student배열
+    public static Student[] array;
+
+    // 3. 다음 입력할 학생의 id를 저장할 int 변수
+    public static int nextId;
+
+    // 메서드
+    // 1. 전역변수를 초기화하는 init()
+    public static void init() {
+        scanner = new Scanner(System.in);
+        array = new Student[0];
+        nextId = 1;
+    }
+
+    // 2. 메뉴를 출력하는 showMenu()
+    public static void showMenu() {
+        init();
+        while (true) {
+            String message = "1.입력 2.출력 3.종료";
+            int userChoice = ScannerUtil.nextInt(scanner, message, 1, 3);
+            if (userChoice == 1) {
+                insert();
+            } else if (userChoice == 2) {
+                printAll();
+            } else if (userChoice == 3) {
+                System.out.println("사용해주셔서 감사합니다.");
+                break;
+                
+            }
+        }
+    }
+
+    // 3. 학생 정보를 입력하는 insert()
+    public static void insert() {
+        // 사용자가 입력한 값을 Student 변수로 저장하기 위해
+        // Student 변수를 하나 만들어준다.
+        Student s = new Student();
+        
+        s.id = nextId++;
+        
+        String message = "학생의 이름을 입력해주세요.";
+        s.name = ScannerUtil.nextLine(scanner, message);
+        
+        message = "학생의 국어 점수를 입력해주세요";
+        s.korean = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
+        
+        message = "학생의 영어 점수를 입력해주세요";
+        s.english= ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
+        
+        message = "학생의 수학 점수를 입력해주세요";
+        s.math = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
+    }
+
+    // 4. 학생 목록을 출력하는 printAll()
+
+    // 5. 개별 학생 출력을 담당하는 printOne()
+
+    // 6. main()
+
+
+
+    public static void main(String[] args) {
+        showMenu();
+    }
+
+}
