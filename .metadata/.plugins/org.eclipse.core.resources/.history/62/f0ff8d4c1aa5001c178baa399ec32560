@@ -1,0 +1,27 @@
+package day0316;
+// Student 클래스
+// 필드 : 번호 , 이름, 국어, 영어, 수학
+// 메소드: 총점계산(), 평균계산(), 정보출력(),
+//       생성자(), 생성자(int,String, int, int, int),equals() 
+
+public class Student {
+    // 필드
+    // 번호
+    public int id;
+    // 이름
+    public String name;
+    // 국어
+    public int korean;
+    // 영어
+    public int english;
+    // 수학
+    public int math;
+    
+    // 메소드
+    // 총점 계산
+    public int calculateSum() {
+        return korean + english + math;
+    }
+    
+    
+}

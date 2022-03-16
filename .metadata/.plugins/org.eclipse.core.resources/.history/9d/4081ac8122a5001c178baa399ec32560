@@ -1,0 +1,39 @@
+package day0316;
+// 학생 한명의 정보를 메뉴를 통해서 관리하는 프로그램을 작성하시오.
+// 단, day0316.Student 클래스 객체를 사용해서 관리하시오
+
+// 9-15
+
+import java.util.*;
+import util.*;
+
+import day0316.Student;
+
+public class Ex02GradeBook {
+    
+    public static final int SUBJECT_SIZE = 3;
+    public static final int SCORE_MIN = 0;
+    public static final int SCORE_MAX = 100;
+    
+    public static Scanner scanner;
+
+    public static Student s;
+    public static int id;
+    public static String name;
+    public static int korean;
+    public static int english;
+    public static int math;
+    
+    
+    public static void main(String[] args) {
+        
+        scanner = new Scanner(System.in);
+        
+        
+        calculateSum();
+        
+        Student s = new Student
+        
+        
+    }
+}

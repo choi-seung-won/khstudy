@@ -4,8 +4,10 @@
     <fullyQualifiedTypeName name="java.io.LineNumberInputStream"/>
     <fullyQualifiedTypeName name="javax.print.attribute.standard.PrinterMessageFromOperator"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="struct.Student"/>
     <fullyQualifiedTypeName name="javax.swing.text.Utilities"/>
+    <fullyQualifiedTypeName name="struct.Board"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="util.ArrayUtil"/>
+    <fullyQualifiedTypeName name="struct.Student"/>
     <fullyQualifiedTypeName name="util.ScannerUtil"/>
 </qualifiedTypeNameHistroy>

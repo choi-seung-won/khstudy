@@ -86,21 +86,30 @@ public class Ex03GradeBook03 {
         } else {
             for (int i = 0; i < ArrayUtil.size(array); i++) {
                 Student s = ArrayUtil.get(array, i);
-                System.out.printf("%d. %s\n", i + 1, s.name);
+                System.out.printf("%d. %s\n", s.id, s.name);
             }
             
             // 사용자한테서 상세보기할 학생의 인덱스를 입력받는다.
             String message = "상세보기할 학생의 번호나 메뉴로 가실려면 0을 입력해주세요";
-            int userChoice = ScannerUtil.nextInt(scanner, message, 0, ArrayUtil.size(array))-1;
+            int userChoice = ScannerUtil.nextInt(scanner, message);
+            
+            // 사용자가 올바른 값을 입력하지 않았을 경우
+            // 올바른 값을 입력할때 까지 다시 입력 받는다.
+            
+            while(userChoice != 0 && !validateId(userChoice)) {
+                System.out.println("잘못 입력하셨습니다.");
+                userChoice = ScannerUtil.nextInt(scanner, message);
+            }
+            
             // 배열은 0부터시작이므로 -1
-            if(userChoice != -1) {
+            if(userChoice != 0) {
                 printOne(userChoice);
             }
         }
     }
     // 5. 개별 학생 출력을 담당하는 printOne()
-    public static void printOne(int index) {
-        Student s = ArrayUtil.get(array, index);
+    public static void printOne(int id) {
+        Student s = selectById(id);
         
         System.out.printf("번호: %d번 이름: %s\n",s.id , s.name);
         System.out.printf("국어: %03d점 영어: %03d점 수학: %03d점\n", s.korean, s.english, s.math);
@@ -114,10 +123,10 @@ public class Ex03GradeBook03 {
         
         if(userChoice ==1) {
             // 개별 학생 수정 메소드 호출
-            update(index);
+            update(id);
         }else if(userChoice == 2) {
             // 개별 학생 삭제 메소드 호출
-            delete(index);
+            delete(id);
         }else if(userChoice == 3) {
             printAll();
             
@@ -126,9 +135,9 @@ public class Ex03GradeBook03 {
     }
     
     // 6. 학생의 정보를 수정하는 update()
-    public static void update(int index) {
+    public static void update(int id) {
         // 업데이트 할 학생의 정보를 불러와서 Student 변수에 저장한다.
-        Student s = ArrayUtil.get(array, index);
+        Student s = selectById(id);
         
         String message = "새로운 국어 점수를 입력해주세요.";
         s.korean = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
@@ -137,12 +146,12 @@ public class Ex03GradeBook03 {
         message = "새로운 수학 점수를 입력해주세요.";
         s.math = ScannerUtil.nextInt(scanner, message, SCORE_MIN, SCORE_MAX);
 
-        printOne(index);
+        printOne(id);
         
     }
     
     // 7. 학생의 정보를 삭제하는 delete()
-    public static void delete(int index) {
+    public static void delete(int id) {
         
         String message = "정말로 삭제하시겠습니까? Y / N";
         String yesNo = ScannerUtil.nextLine(scanner, message);
@@ -150,16 +159,37 @@ public class Ex03GradeBook03 {
         // 만약 String값을 대소문자 상관없이 비교할때는
         // equalsIgnoreCase()를 사용하면된다.
         if(yesNo.equalsIgnoreCase("Y")) {
-            array = ArrayUtil.remove(array, index);
+            Student s = selectById(id);
+            array = ArrayUtil.remove(array, s);
             printAll();
         }else {
-            printOne(index);
+            printOne(id);
         }
     }
     
     // 8. main()
     public static void main(String[] args) {
         showMenu();
+    }
+    // 9. validateId()
+    public static boolean validateId(int id) {
+        
+        Student s = new Student();
+        s.id = id;
+        return ArrayUtil.contains(array, s);
+    }
+    
+    // 10. selectById()
+    
+    public static Student selectById(int id) {
+        
+        if(validateId(id)) {
+            Student s = new Student();
+            s.id = id;
+            
+            return ArrayUtil.get(array, ArrayUtil.indexOf(array, s));
+        }
+        return null;
     }
 
 }

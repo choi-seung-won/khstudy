@@ -6,18 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="id"/>
+		<item key="selection" value="userChoice != -1"/>
 		<list key="findhistory">
-			<item value="id"/>
-			<item value="id ="/>
-			<item value="add"/>
-			<item value="set"/>
-			<item value="problem"/>
-			<item value="printInfo"/>
-			<item value="랜덤 숫자를 하나"/>
-			<item value="// 1. 랜덤 숫자를 하나"/>
-			<item value="// 1. 랜덤"/>
-			<item value="참조"/>
+			<item value="userChoice != -1"/>
+			<item value="delete(int"/>
+			<item value="selectById"/>
+			<item value="printO"/>
+			<item value="contains(Stu"/>
+			<item value="printAl"/>
+			<item value="printAL"/>
+			<item value="add(B"/>
+			<item value="contains(B"/>
+			<item value="update"/>
+			<item value="updated"/>
+			<item value="equals(Stu"/>
+			<item value="contains(Stud"/>
+			<item value="size(Board"/>
+			<item value="indexOf(String"/>
 		</list>
 		<list key="replacehistory">
 		</list>

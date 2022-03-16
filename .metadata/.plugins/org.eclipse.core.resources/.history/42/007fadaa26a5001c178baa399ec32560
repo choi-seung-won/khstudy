@@ -1,0 +1,30 @@
+package day0316;
+
+// 캡슐화가 적용된 학생 클래스
+
+public class Student2 {
+    
+
+    private int id;
+    private String name;
+    private int korean;
+    private int english;
+    private int math;
+    
+    // getter/setter
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
+
+    
+}

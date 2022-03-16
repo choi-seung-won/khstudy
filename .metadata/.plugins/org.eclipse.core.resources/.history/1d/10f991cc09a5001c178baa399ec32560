@@ -1,0 +1,39 @@
+package day0316;
+
+import util.*;
+import java.util.*;
+import struct.Student;
+public class Ex01GradeBook {
+    
+    
+    public static Scanner scanner;
+    
+    public static Student[] array;
+    
+    public static int nextId;
+    
+    public static void main(String[] args) {
+        init();
+    }
+    public static void init() {
+        
+        scanner = new Scanner(System.in);
+        
+        array = new Student[0];
+        
+        nextId = 1;
+        
+        showMenu();
+        
+    }
+    
+    public static void showMenu() {
+
+        while(true) {
+            String message = "";
+        }
+    
+    
+    }
+
+}

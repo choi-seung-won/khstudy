@@ -1,0 +1,43 @@
+package day0316;
+// Student 클래스
+// 필드 : 번호 , 이름, 국어, 영어, 수학
+// 메소드: 총점계산(), 평균계산(), 정보출력(),
+//       생성자(), 생성자(int,String, int, int, int),equals() 
+
+public class Student {
+    // 필드
+    // 번호
+    public int id;
+    // 이름
+    public String name;
+    // 국어
+    public int korean;
+    // 영어
+    public int english;
+    // 수학
+    public int math;
+    // 총 과목의 숫자
+    public final int SUBJECT_SIZE=3;
+    
+    
+    // 메소드
+    // 총점 계산
+    public int calculateSum() {
+        return korean + english + math;
+    }
+    
+    // 평균 계산
+    public double calculateAverage() {
+        return (double)calculateSum() / SUBJECT_SIZE;
+    }
+    
+    // 개별 정보 출력 메소드
+    public void printInfo() {
+        System.out.printf("번호: %d번 이름: %s\n", id , name);
+        System.out.printf("국어: %03d점 영어: %03d점 수학: %03d점\n", korean , english , math);
+        System.out.printf("총점: %03d점 평균: %06.2f점\n", calculateSum(), calculateAverage());
+    }
+    
+    
+    
+}

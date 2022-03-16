@@ -1,0 +1,90 @@
+package homework;
+// 구조체를 사용해서 게시판 프로그램을 작성하세요.
+// 게시판에 입력될 게시글은
+// 글 번호, 글 제목, 글 작성자, 글 내용 4가지 정보가 입력되어야 하며
+// 입력, 목록 출력, 수정, 삭제 기능이 모두 들어가야 합니다.
+// 또한 동적할당이 된 배열을 통해서 프로그램이 제어되어야합니다.
+
+import struct.Board;
+import util.*;
+import java.util.*;
+
+public class Ex05Board {
+    public static Scanner scanner;
+    public static Board[] array;
+    public static int nextId;
+
+    
+    
+    
+    // 1. 메인 메소드 실행
+    
+    
+    // 2. 전역 변수를 초기화하는 메소드 실행
+    
+    
+    // 3. 메뉴 출력을 담당하는 메소드 실행
+    
+    
+    // 3-1. 메뉴에서 입력을 눌렀을 경우 입력 메소드 실행
+    
+    // 3-2. 메뉴에서 목록출력을 눌렀을 경우 목록 출력 메소드 실행
+    
+    // 3-2-1. 만약 작성된 글이 존재하지 않으면 메시지 출력.
+    
+    // 3-2-2-1. 만약 작성된글이 존재하면 글 목록을 간단하게 출력.
+    
+    // 3-2-2-2. 상세보기할 글의 인덱스나 메뉴로 갈려면 0을 입력받는다.
+    
+    // 3-2-2-2-1. 선택된 글을 상세 출력하고 수정,삭제, 목록으로중 하나를 입력받는다.
+    
+    // 3-2-2-2-2. 수정을 선택했을 경우 글 수정 메소드 실행
+    
+    // 3-2-2-2-3. 삭제를 선택했을 경우 글 삭제 메소드 실행
+    
+    // 3-2-2-2-4. 목록으로 를 선택했을 경우 목록 출력 메소드 실행
+    
+    // 3-3. 메뉴에서 종료를 눌렀을 경우 메시지 출력 후 break 실행
+    
+    public static void main(String[] args) {
+        init();
+    }
+    
+    public static void init() {
+        
+        // Scanner 초기화 
+        scanner = new Scanner(System.in);
+        
+        // array 초기화
+        array = new Board[0];
+        
+        // nextId 초기화
+        nextId = 1;
+        
+        // 메뉴출력메소드호출
+        showMenu();
+    }
+    
+    public static void showMenu() {
+        while(true) {
+            String message = "1. 글작성하기 2. 게시판목록보기 3. 종료";
+            int userChoice = ScannerUtil.nextInt(scanner, message, 1, 3);
+            
+            if(userChoice == 1) {
+                // 글 작성 메소드 호출
+                writeBoard();
+                
+            }else if(userChoice == 2) {
+                // 글목록 출력 메소드 호출
+                printAll();
+            }else if(userChoice == 3) {
+                // 메세지출력후종료
+                System.out.println("thanksforuse");
+                break;
+            }
+        }
+    }
+    
+    
+}
+

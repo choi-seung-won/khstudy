@@ -5,6 +5,7 @@ package util;
 // ArrayUti 클래스
 
 import struct.Student;
+import struct.Board;
 
 public class ArrayUtil {
 
@@ -368,6 +369,138 @@ public class ArrayUtil {
     // K. remove(Student[], Student)
     public static Student[] remove(Student[] array, Student s) {
         return remove(array, indexOf(array,s));
+    }
+    
+ // 4. Board[]
+    
+    //public static boolean equals(Board b1, Board b2) {
+     //   return b1.id == b2.id;
+    // }
+    
+
+
+
+    // Z. equals(Board[])
+    public static boolean equals(Board b1, Board b2) {
+        return b1.id == b2.id;
+    }
+    // A. size(Board[])
+    public static int size(Board[] array) {
+        return array.length;
+    }
+    
+    // B. isEmpty(String[])
+    public static boolean isEmpty(Board[] array) {
+        return size(array) == 0;
+    }
+    
+    // C. get(String[],int)
+    public static Board get(Board[] array, int index) {
+        return array[index];
+    }
+    
+
+    // D. contains(String[],String)
+    public static boolean contains(Board[] array, Board b) {
+        
+        for (int i = 0; i < size(array); i++) {
+            if (equals(b,get(array,i))){
+                return true;
+            }
+        }
+        // We can use == operators for reference comparison (address comparison) and .
+        // equals() method for content comparison. In simple words, == checks if both
+        // objects point to the same memory location whereas . equals() evaluates to the
+        // comparison of values in the objects
+        
+        return false;
+    }
+    
+    // E. indexOf(String[],String)
+    public static int indexOf(Board[] array, String e) {
+        for (int i = 0; i < size(array); i++) {
+            if (e.equals(get(array, i))) {
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+    
+    
+    // F. lastIndexOf(String[],String)
+    public static int indexOf(Board[] array , Board b) {
+        for(int i = 0 ; i < size(array); i ++) {
+            if(equals(b,get(array,i))) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    // G. add(String[],String)
+    
+  
+    public static Board[] add(Board[] array, Board b) {
+        Board[] temp = new Board[size(array) + 1];
+        
+        for (int i = 0; i < size(array); i++) {
+            temp[i] = get(array, i);
+        }
+        
+        temp[size(temp) - 1] = b;
+        
+        return temp;
+        
+    }
+    
+    // H. add(String[],int,String)
+    public static Board[] add(Board[] array, int index, Board b  ) {
+        Board[] temp = new Board[0];
+        for (int i = 0; i < index; i++) {
+            temp = add(temp, get(array, i));
+        }
+        
+        temp = add(temp, b);
+        
+        for (int i = index; i < size(array); i++) {
+            temp = add(temp, get(array, i));
+        }
+        return temp;
+    }
+    
+    // I. set(String[],int,String)
+    public static Board set(Board[] array, int index, Board b) {
+        
+        Board temp = get(array,index);
+        
+        array[index] = b;
+        
+        return temp;
+    }
+    
+    // J. remove(String[],int)
+    
+    public static Board[] remove(Board[] array, int index) {
+        Board[] temp = new Board[0];
+        
+        for(int i = 0 ; i < size(array); i ++) {
+            if(i != index) {
+                temp = add(temp,get(array,i));
+            }
+        }
+        
+        return temp;
+        
+    }
+    
+    
+    // K. remove(String[],String)
+    
+    public static Board[] remove(Board[] array, Board b) {
+        
+        return remove(array, indexOf(array,b));
+        
     }
     
 }
