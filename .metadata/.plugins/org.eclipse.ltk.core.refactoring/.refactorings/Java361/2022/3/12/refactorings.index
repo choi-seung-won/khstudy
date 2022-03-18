@@ -12,3 +12,8 @@
 1647589392039	Delete element
 1647590769718	Rename package 'ㅡㅐㅇ디'
 1647590776818	Delete element
+1647594952261	Move compilation unit
+1647595136606	Rename package 'controler'
+1647601452925	Rename field 'SUBJECT_ISZE'
+1647606178727	Rename method 'insertEmployee'
+1647607419691	Rename local variable 'e'

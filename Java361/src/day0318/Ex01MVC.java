@@ -41,7 +41,12 @@ package day0318;
 // 그래서 우리가 여기서는 학생에 대한 MVC 패턴과 그리고 그것을 실행하는 방법을 알아보게 될 것이다.
 
 
-
+import viewer.StudentViewer;
 public class Ex01MVC {
+    
+    public static void main(String[] args) {
+        StudentViewer viewer = new StudentViewer();
+        viewer.showMenu();
+    }
 
 }

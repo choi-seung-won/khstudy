@@ -68,4 +68,17 @@ public class StudentDTO {
         }
         return false;
     }
+    
+    public StudentDTO() {
+        
+    }
+    
+    public StudentDTO(StudentDTO s) {
+        //this.
+        id = s.id;
+        name = s.name;
+        korean = s.korean;
+        english = s.english;
+        math = s.math; 
+    }
 }
