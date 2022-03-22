@@ -16,19 +16,26 @@ public class BoardViewer {
     private Scanner scanner;
     private UserDTO logIn;
     private UserViewer userViewer;
-    
+    private ReplyViewer replyViewer;
+
     public void setLogIn(UserDTO u) {
-        if(u != null) {
-        logIn = new UserDTO(u);
-        }else {
+        if (u != null) {
+            logIn = new UserDTO(u);
+        } else {
             logIn = null;
         }
-        
+
     }
-    
+
     public void setUserViewer(UserViewer userViewer) {
         this.userViewer = userViewer;
+        replyViewer.setUserViewer(userViewer); // userviewer와 replyviewer의연동
     }
+
+    public void setReplyViewer(ReplyViewer replyViewer) {
+        this.replyViewer = replyViewer;
+    }
+
     public BoardViewer() {
         boardController = new BoardController();
         scanner = new Scanner(System.in);
@@ -63,7 +70,7 @@ public class BoardViewer {
         b.setTitle(ScannerUtil.nextLine(scanner, message));
 
         b.setWriterId(logIn.getId());
-        
+
         message = "글의 내용을 입력해주세요.";
         b.setContent(ScannerUtil.nextLine(scanner, message));
 
@@ -109,32 +116,44 @@ public class BoardViewer {
 
         System.out.println(b.getContent());
 
+        replyViewer.printList(id);
+
         String message;
-        
-        int optionMin , optionMax;
-        
-        
-        if(b.getWriterId() == logIn.getId()) {
-            message = "1. 수정 2. 삭제 3. 목록으로가기";
+
+        int optionMin, optionMax;
+
+        if (b.getWriterId() == logIn.getId()) {
+            
+            message = "1. 수정 2. 삭제 3. 목록으로 가기";
             optionMin = 1;
             optionMax = 3;
-        }else {
-            message = "3. 목록으로 가기";
-            optionMin = 3;
-            optionMax = 3;
-        }
+            
+            int userChoice = ScannerUtil.nextInt(scanner, message, optionMin, optionMax);
+            if (userChoice == 1) {
+                update(id);
 
-        
-        int userChoice = ScannerUtil.nextInt(scanner, message , optionMin, optionMax);
-        if (userChoice == 1) {
-            update(id);
+            } else if (userChoice == 2) {
+                delete(id);
 
-        } else if (userChoice == 2) {
-            delete(id);
-
+            } else { ////////여기서에러. 코멘트달기 > 글목록으로감. 목록으로가기 > 동작 X
+                printAll();
+            }
+            
         } else {
-            printAll();
+            message = "1. 댓글 달기 2. 목록으로 가기";
+            optionMin = 1;
+            optionMax = 2;
+            
+            int userChoice = ScannerUtil.nextInt(scanner, message, optionMin, optionMax);
+            if (userChoice == 1) {
+                replyViewer.writeReply(logIn.getId(), id);
+                printOne(id);
+            } else if (userChoice == 2) {
+                printAll();
+            }
         }
+
+
 
     }
 
@@ -158,11 +177,14 @@ public class BoardViewer {
         if (yesNo.equalsIgnoreCase("Y")) {
             boardController.delete(id);
             printAll();
-
         } else {
             printOne(id);
 
         }
+    }
+
+    public void deleteByWriterId(int writerId) {
+        boardController.deleteByWrierId(writerId);
     }
 
 }

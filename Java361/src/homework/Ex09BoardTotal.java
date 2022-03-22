@@ -11,5 +11,7 @@ package homework;
 
 
 public class Ex09BoardTotal {
+    
+    
 
 }

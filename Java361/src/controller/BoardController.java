@@ -65,5 +65,17 @@ public class BoardController {
         list.remove(b);
         
     }
+    
+    public void deleteByWrierId(int writerId) {
+        
+        for(int i = 0 ; i < list.size() ; i ++) {
+            BoardDTO b = list.get(i);
+            if(b.getWriterId() == writerId) {
+                list.remove(i);
+                i = -1;
+            }
+        }
+        
+    }
 
 }
