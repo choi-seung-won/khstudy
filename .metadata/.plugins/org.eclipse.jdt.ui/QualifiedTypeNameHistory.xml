@@ -16,9 +16,22 @@
     <fullyQualifiedTypeName name="controller.StudentController"/>
     <fullyQualifiedTypeName name="viewer.StudentViewer"/>
     <fullyQualifiedTypeName name="model.StudentDTO"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="util.ScannerUtil"/>
     <fullyQualifiedTypeName name="viewer.EmployeeViewer"/>
     <fullyQualifiedTypeName name="controller.EmployeeController"/>
     <fullyQualifiedTypeName name="model.EmployeeDTO"/>
+    <fullyQualifiedTypeName name="homework.User"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="controller.UserController"/>
+    <fullyQualifiedTypeName name="homework.javatest"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="model.BoardDTO"/>
+    <fullyQualifiedTypeName name="util.ScannerUtil"/>
+    <fullyQualifiedTypeName name="viewer.BoardViewer"/>
+    <fullyQualifiedTypeName name="model.UserDTO"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="model.CommentDTO"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="viewer.UserViewer"/>
+    <fullyQualifiedTypeName name="controller.BoardController"/>
 </qualifiedTypeNameHistroy>
