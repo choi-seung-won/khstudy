@@ -44,6 +44,16 @@ public class UserDTO {
         this.nickname = nickname;
     }
     
+
+    public String getUserRate() {
+        return userRate;
+    }
+
+    public void setUserRate(String userRate) {
+        this.userRate = userRate;
+
+    }
+
     public int getUserRateCode() {
         return userRateCode;
     }
@@ -57,16 +67,6 @@ public class UserDTO {
             userRate = "관리자";
         }
     }
-
-    public String getUserRate() {
-        return userRate;
-    }
-
-    public void setUserRate(String userRate) {
-        this.userRate = userRate;
-
-    }
-
     
     
     
@@ -86,12 +86,12 @@ public class UserDTO {
     
     public UserDTO(UserDTO u) {
         
-        this.id = u.id;
-        this.nickname = u.nickname;
-        this.userName = u.userName;
-        this.userPassword = u.userPassword;
-        this.userRate = u.userRate;
-        this.userRateCode = u.userRateCode;
+        id = u.id;
+        nickname = u.nickname;
+        userName = u.userName;
+        userPassword = u.userPassword;
+        userRate = u.userRate;
+        userRateCode = u.userRateCode;
         
     }
 

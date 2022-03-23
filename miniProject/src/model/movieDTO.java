@@ -36,7 +36,7 @@ public class movieDTO {
         return movieRate;
     }
 
-    public void setMovieRate(String movieRate) {
+    public void setMovieRate(int movieRateCode) {
         if (movieRateCode == 1) {
             movieRate = "전체 이용가";
         } else if (movieRateCode == 2) {
@@ -52,6 +52,13 @@ public class movieDTO {
 
     public void setMovieRateCode(int movieRateCode) {
         this.movieRateCode = movieRateCode;
+        if(movieRateCode == 1) {
+            movieRate = "전체이용가";
+        }else if(movieRateCode == 2) {
+            movieRate = "15세이상 이용가";
+        }else if(movieRateCode == 3) {
+            movieRate = "청소년 관람불가";
+        }
     }
 
     public movieDTO() {
@@ -59,10 +66,13 @@ public class movieDTO {
     }
 
     public movieDTO(movieDTO m) {
+        
         this.id = m.id;
         this.movieRate = m.movieRate;
         this.name = m.name;
         this.plot = m.plot;
+        this.movieRateCode = m.movieRateCode;
+        
     }
     
     public boolean equals(Object o) {

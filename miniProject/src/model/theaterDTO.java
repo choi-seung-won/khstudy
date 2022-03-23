@@ -4,13 +4,18 @@ public class theaterDTO {
     
     
     private int id;
-    private int name;
+    private String name;
     private String location;
-    
-
-
     private int callNum;
     
+    public String getName() {
+        return name;
+    }
+    
+    
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -20,18 +25,6 @@ public class theaterDTO {
     public void setId(int id) {
         this.id = id;
     }
-
-
-    public int getName() {
-        return name;
-    }
-
-
-    public void setName(int name) {
-        this.name = name;
-    }
-
-
 
     public int getCallNum() {
         return callNum;

@@ -6,8 +6,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="deleteBy"/>
+		<item key="selection" value="!= null"/>
 		<list key="findhistory">
+			<item value="!= null"/>
+			<item value="viewer.print"/>
+			<item value="printList"/>
+			<item value="logIn"/>
+			<item value="class"/>
 			<item value="deleteBy"/>
 			<item value="one"/>
 			<item value="사용해"/>
@@ -18,18 +23,13 @@
 			<item value="set"/>
 			<item value="v"/>
 			<item value="update"/>
-			<item value="null"/>
-			<item value="printInfo"/>
-			<item value="main()"/>
-			<item value="next"/>
-			<item value="printOne"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="918"/>
-		<item key="DIALOG_Y_ORIGIN" value="123"/>
+		<item key="DIALOG_X_ORIGIN" value="949"/>
+		<item key="DIALOG_Y_ORIGIN" value="657"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

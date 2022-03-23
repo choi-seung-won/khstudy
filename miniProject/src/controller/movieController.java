@@ -8,21 +8,22 @@ import java.util.*;
 import model.UserDTO;
 import model.movieDTO;
 import viewer.UserViewer;
+import model.theaterDTO;
 
 public class movieController {
 
     private ArrayList<movieDTO> list;
     private int nextId;
-    private UserViewer userViewer;
     private UserDTO userDTO;
-
+    private theaterDTO theaterDTO;
+    
     public movieController() {
 
         list = new ArrayList<>();
         nextId = 1;
-        userViewer = new UserViewer();
         userDTO = new UserDTO();
-
+        theaterDTO = new theaterDTO();
+        
         for (int i = 1; i < 3; i++) {
             movieDTO m = new movieDTO();
             m.setName("제목" + i);

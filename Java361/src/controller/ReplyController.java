@@ -27,7 +27,6 @@ public class ReplyController {
         r.setId(nextId++);
         r.setWrittenDate(Calendar.getInstance());
         list.add(r);
-
     }
 
     public ArrayList<ReplyDTO> selectAll(int boardId) {

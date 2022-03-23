@@ -8,6 +8,7 @@ public class RateDTO {
     private int writerId;
     private int movieId;
     private int rate;
+    
     private String content;
     private Calendar writtenDate;
 
@@ -65,18 +66,17 @@ public class RateDTO {
 
     public RateDTO(RateDTO r) {
 
-        this.id = r.id;
-        this.content = r.content;
-        this.movieId = r.movieId;
-        this.rate = r.rate;
-        this.writerId = r.writerId;
+        id = r.id;
+        content = r.content;
+        movieId = r.movieId;
+        rate = r.rate;
+        writerId = r.writerId;
 
         writtenDate = Calendar.getInstance();
         writtenDate.setTime(r.writtenDate.getTime());
     }
 
     public boolean equals(Object o) {
-
         if (o instanceof RateDTO) {
             RateDTO r = (RateDTO) o;
             return id == r.id;

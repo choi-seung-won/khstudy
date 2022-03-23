@@ -7,6 +7,7 @@ public class ReplyDTO {
     private int id;
     private int boardId;
     private int writerId;
+    
     private String content;
     private Calendar writtenDate;
     
