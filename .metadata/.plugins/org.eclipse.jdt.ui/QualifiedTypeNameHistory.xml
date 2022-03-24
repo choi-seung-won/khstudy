@@ -36,7 +36,6 @@
     <fullyQualifiedTypeName name="controller.UserController"/>
     <fullyQualifiedTypeName name="viewer.RateViewer"/>
     <fullyQualifiedTypeName name="javax.security.auth.login.LoginContext"/>
-    <fullyQualifiedTypeName name="model.UserDTO"/>
     <fullyQualifiedTypeName name="viewer.theaterViewer"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="model.theaterDTO"/>
@@ -51,4 +50,5 @@
     <fullyQualifiedTypeName name="model.movieDTO"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="viewer.ScheduleViewer"/>
+    <fullyQualifiedTypeName name="model.UserDTO"/>
 </qualifiedTypeNameHistroy>

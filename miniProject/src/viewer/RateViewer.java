@@ -68,6 +68,13 @@ public class RateViewer {
     private void printOne(RateDTO r) {
         SimpleDateFormat sdf = new SimpleDateFormat("yy/m/d/ H:m:s");
         System.out.printf("%s - by ", r.getContent());
+        if(r.getWriterId() == 2) {
+            System.out.print("전문 평론가");
+        }else if(r.getWriterId() == 1) {
+            System.out.print("일반 관람객");
+        }else {
+            System.out.print("관리자");
+        }
         //
         //userViewer.printNickname(r.getWriterId());
         //System.out.printf("No : %d NickName : %s",logIn.getId(),logIn.getNickname());
@@ -80,6 +87,7 @@ public class RateViewer {
 
     public void printSelectedList(int movieId) {
         ArrayList<RateDTO> list = rateController.selectExclusive(movieId);
+        //ArrayList<RateDTO> list = rateController.selectTest(movieId);
         if (list.isEmpty()) {
             System.out.println("\n 아직 등록된 평론이 존재하지 않습니다. \n");
         } else {

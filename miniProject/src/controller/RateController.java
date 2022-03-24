@@ -16,7 +16,7 @@ public class RateController {
     private int nextId;
     private UserDTO logIn;
     private theaterDTO theaterDTO;
-    
+
     public RateController() {
         list = new ArrayList<>();
         nextId = 1;
@@ -62,19 +62,20 @@ public class RateController {
 
         ArrayList<RateDTO> temp = new ArrayList<>();
         for (RateDTO r : list) {
-            if (r.getRate() == 2 && r.getMovieId() == movieId) {
+            if (r.getWriterId() == 2 && r.getMovieId() == movieId) {
                 temp.add(new RateDTO(r));
-            } 
+            }
         }
         return temp;
     }
+
     public ArrayList<RateDTO> selectPublic(int movieId) {
 
         ArrayList<RateDTO> temp = new ArrayList<>();
         for (RateDTO r : list) {
-            if (r.getRate() == 1 && r.getMovieId() == movieId) {
+            if (r.getWriterId() == 1 && r.getMovieId() == movieId) {
                 temp.add(new RateDTO(r));
-            } 
+            }
         }
         return temp;
     }
