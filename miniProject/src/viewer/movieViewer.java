@@ -9,14 +9,20 @@ import model.UserDTO;
 import model.movieDTO;
 import util.ScannerUtil;
 
+import viewer.*;
+
+
 public class movieViewer {
 
     private Scanner scanner;
+    
     private UserDTO logIn;
     private UserViewer userViewer;
+    
     private movieController movieController;
+    
     private RateViewer rateViewer;
-    private theaterViewer TheaterViewer;
+    private theaterViewer theaterViewer;
     
     
     private final int MOVIE_RATE_CODE_MIN = 1;
@@ -36,40 +42,36 @@ public class movieViewer {
 
         this.userViewer = userViewer;
         rateViewer.setUserViewer(userViewer);
-        TheaterViewer.setUserViewer(userViewer);
-        
+        theaterViewer.setUserViewer(userViewer);
     }
 
-    public void setRateViewer(RateViewer rateViewer) {
-        this.rateViewer = rateViewer;
-    }
+    public void setRateViewer(RateViewer rateViewer) {this.rateViewer = rateViewer;}
     
-    public void setTheaterViewer(theaterViewer theaterViewer) {
-        this.TheaterViewer = theaterViewer;
-    }
+    public void setTheaterViewer(theaterViewer theaterViewer) {this.theaterViewer = theaterViewer;}
 
     public movieViewer() {
 
         movieController = new movieController();
         scanner = new Scanner(System.in);
 
+    
     }
 
-    public void showMenu() {
+    public void showMenu() {//userchoice 2에서 에러발생, 사용X movieMenu로연결
 
-        String message = "1. 영화 목록 보기 2. 극장 목록 보기 3. 상영 정보 보기 4. 프로그램 종료";
+        String message = "1. 영화 목록 보기 2. 극장 목록 보기 3. 프로그램 종료";
 
         while (true) {
-
+            
+            //TheaterViewer.setLogIn(logIn);
+            
             int userChoice = ScannerUtil.nextInt(scanner, message, 1, 4);
 
             if (userChoice == 1) {
                 showMovieMenu();
             } else if (userChoice == 2) {
-                TheaterViewer.showTheaterMenu();
+                theaterViewer.showTheaterMenu();//
             } else if (userChoice == 3) {
-
-            } else if (userChoice == 4) {
 
                 System.out.println("thanks for use");
                 break;
@@ -78,7 +80,7 @@ public class movieViewer {
 
     }
 
-    private void showMovieMenu() {
+    public void showMovieMenu() {
 
         ArrayList<movieDTO> list = movieController.selectAll();
         if (list.isEmpty()) {
@@ -105,7 +107,7 @@ public class movieViewer {
 
     }
 
-    private void printOne(int id) {
+    public void printOne(int id) {
 
         // UserDTO u = new UserDTO();
         // UserViewer uv = new UserViewer();
@@ -128,7 +130,8 @@ public class movieViewer {
             // 유저정보 수정시 반영X
 
             System.out.println("YouAreVerifiedUser");
-
+            //userViewer.printNickname(id);
+            
             message = "1. 새 영화 등록 2. 이 영화의 정보 수정 3. 이 영화 삭제 4. 목록으로 가기";
             optionMin = 1;
             optionMax = 4;
@@ -170,7 +173,7 @@ public class movieViewer {
                 rateViewer.printSelectedList(id);
             } else if (userChoice == 4) {
                 // 일반 관람객 평점
-
+                rateViewer.printPublicList(id);
             } else if (userChoice == 5) {
 
                 showMovieMenu();

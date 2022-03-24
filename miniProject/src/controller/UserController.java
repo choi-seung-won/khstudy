@@ -27,6 +27,7 @@ public class UserController {
             u.setUserName("u" + i);
             u.setUserPassword("1");
             u.setNickname("사용자" + i);
+            u.setId(i);
             u.setUserRateCode(i);
             add(u);
         }

@@ -7,12 +7,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import model.RateDTO;
+import model.UserDTO;
+import model.theaterDTO;
 
 public class RateController {
 
     private ArrayList<RateDTO> list;
     private int nextId;
-
+    private UserDTO logIn;
+    private theaterDTO theaterDTO;
+    
     public RateController() {
         list = new ArrayList<>();
         nextId = 1;
@@ -20,10 +24,13 @@ public class RateController {
         for (int i = 1; i <= 3; i++) {
 
             RateDTO r = new RateDTO();
-            r.setMovieId(2);
-            r.setWriterId(3);
+            logIn = new UserDTO();
+            theaterDTO = new theaterDTO();
+            r.setMovieId(1);
+            r.setWriterId(i);
             r.setContent("내용" + i);
-
+            r.setRate(i);
+            r.setId(nextId);
             add(r);
 
         }
@@ -51,11 +58,21 @@ public class RateController {
         return temp;
     }
 
-    public ArrayList<RateDTO> selectExclusive(int movieId) {//작동안함
+    public ArrayList<RateDTO> selectExclusive(int movieId) {
 
         ArrayList<RateDTO> temp = new ArrayList<>();
         for (RateDTO r : list) {
-            if (r.getRate() == 3) {
+            if (r.getRate() == 2 && r.getMovieId() == movieId) {
+                temp.add(new RateDTO(r));
+            } 
+        }
+        return temp;
+    }
+    public ArrayList<RateDTO> selectPublic(int movieId) {
+
+        ArrayList<RateDTO> temp = new ArrayList<>();
+        for (RateDTO r : list) {
+            if (r.getRate() == 1 && r.getMovieId() == movieId) {
                 temp.add(new RateDTO(r));
             } 
         }

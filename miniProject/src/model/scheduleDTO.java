@@ -1,6 +1,8 @@
 package model;
 
 import java.util.Calendar;
+import model.movieDTO;
+
 
 public class scheduleDTO {
 

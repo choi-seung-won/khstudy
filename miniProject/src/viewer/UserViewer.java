@@ -22,21 +22,36 @@ public class UserViewer {
     private movieViewer movieViewer;
     private RateViewer rateViewer;
     private theaterViewer theaterViewer;
-    
+
     public UserViewer() {
-        
+
         scanner = new Scanner(System.in);
         userController = new UserController();
+
         rateViewer = new RateViewer();
+
         movieViewer = new movieViewer();
         movieViewer.setRateViewer(rateViewer);
-        //movieViewer.setUserViewer(this);
-        
-        theaterViewer = new theaterViewer();
-        //theaterViewer.setUserViewer(this);
-        theaterViewer.setRateViewer(rateViewer);
-        
+        movieViewer.setTheaterViewer(theaterViewer);
 
+        theaterViewer = new theaterViewer();
+        theaterViewer.setMovieViewer(movieViewer);
+        theaterViewer.setRateViewer(rateViewer);
+
+    }
+
+    public void setRateViewer(RateViewer rateViewer) {
+        this.rateViewer = rateViewer;
+    }
+
+    public void settheaterViewer(theaterViewer theaterViewer) {
+
+        this.theaterViewer = theaterViewer;
+
+    }
+
+    public void setmovieViewer(movieViewer movieViewer) {
+        this.movieViewer = movieViewer;
     }
 
     public void showIndex() {
@@ -85,7 +100,7 @@ public class UserViewer {
             String password = ScannerUtil.nextLine(scanner, message);
             message = "사용할 닉네임을 입력. ";
             String nickname = ScannerUtil.nextLine(scanner, message);
-            message = "계정의 등급을 입력.";
+            message = "계정의 등급을 입력. (1. 일반 관람객 2. 전문 평론가 3. 관리자)";
             int accountRank = ScannerUtil.nextInt(scanner, message, RATE_CODE1, RATE_CODE3);
 
             UserDTO u = new UserDTO();
@@ -175,9 +190,7 @@ public class UserViewer {
         if (yesNo.equalsIgnoreCase("Y")) {
             userController.delete(id);
             rateViewer.deleteByWriterId(id);
-            /*
-             * boardViewer.deleteByWriterId(id);
-             */
+
             logIn = null;
         } else {
             printOne(id);
@@ -205,25 +218,25 @@ public class UserViewer {
 
     private void showMenu() {
 
-        String message = "1. 영화 게시판 이동 2. 회원 정보 보기 3. 극장 목록보기 4.극장 개별보기 5. 로그아웃";
+        String message = "1. 영화 게시판 이동 2. 회원 정보 보기 3. 극장 목록보기 4. 로그아웃";
         while (logIn != null) {
 
             movieViewer.setLogIn(logIn);
-
-            int userChoice = ScannerUtil.nextInt(scanner, message, 1, 5);
+            theaterViewer.setLogIn(logIn);
+            rateViewer.setLogIn(logIn);
+            
+            int userChoice = ScannerUtil.nextInt(scanner, message, 1, 4);
             if (userChoice == 1) {
-                movieViewer.showMenu();
+                movieViewer.showMovieMenu();
             } else if (userChoice == 2) {
                 printOne(logIn.getId());
             } else if (userChoice == 3) {
-                //극장목록보기
+                // 극장목록보기
                 theaterViewer.showTheaterMenu();
             } else if (userChoice == 4) {
-                //극장개별보기
-            } else if (userChoice == 5) {
                 System.out.println("로그아웃 되셨습니다.");
                 logIn = null;
-                
+
                 movieViewer.setLogIn(null);//
                 theaterViewer.setLogIn(null);
             }

@@ -3,21 +3,20 @@ package viewer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.theaterController;
-import controller.UserController;
-import model.UserDTO;
-import model.theaterDTO;
+import controller.*;
+import model.*;
 import util.ScannerUtil;
 
 public class theaterViewer {
 
     private Scanner scanner;
     private UserDTO logIn;
-    
+
     private UserViewer userViewer;
     private movieViewer movieViewer;
     private RateViewer rateViewer;
-    
+    private ScheduleViewer scheduleViewer;
+
     private theaterController theaterController;
 
     // private 상영정보viewer
@@ -31,20 +30,43 @@ public class theaterViewer {
     }
 
     public theaterViewer() {
-        
+
         theaterController = new theaterController();
         scanner = new Scanner(System.in);
-    }
-    
-    public void setUserViewer(UserViewer userViewer) {this.userViewer = userViewer;}
-    public void setMovieViewer(movieViewer movieViewer) {this.movieViewer = movieViewer;}
-    public void setRateViewer(RateViewer rateViewer) {this.rateViewer = rateViewer;}
-    
 
+        rateViewer = new RateViewer();
+
+        movieViewer = new movieViewer();
+        // movieViewer.setLogIn(logIn);
+
+        scheduleViewer = new ScheduleViewer();
+        // scheduleViewer.setLogIn(logIn);
+
+    }
+
+    public void setUserViewer(UserViewer userViewer) {
+        this.userViewer = userViewer;
+        movieViewer.setUserViewer(userViewer);
+        rateViewer.setUserViewer(userViewer);
+        // this.rateViewer = rateViewer;
+
+        // rateViewer.setUserViewer(userViewer);
+        // rateViewer.setMovieViewer(movieViewer);
+
+    }
+
+    public void setMovieViewer(movieViewer movieViewer) {
+        this.movieViewer = movieViewer;
+    }
+
+    public void setRateViewer(RateViewer rateViewer) {
+        this.rateViewer = rateViewer;
+    }
 
     public void showTheaterMenu() {
 
         ArrayList<theaterDTO> list = theaterController.selectAll();
+
         if (list.isEmpty()) {
             System.out.println("등록된 영화관이 아직 없습니다.");
         } else {
@@ -78,34 +100,47 @@ public class theaterViewer {
         String message;
         int optionMin, optionMax;
 
-        /*
         if (logIn.getUserRate().equals("관리자") || logIn.getUserRateCode() == 3) {
-            
+
             System.out.println("WelcomeAdmin");
-            
-            message = "1. 새 영화관 등록 2. 이 영화관의 정보 수정 3. 이 영화관 삭제 4. 목록으로 가기";
+
+            message = "1. 새 영화관 등록 2. 이 영화관의 정보 수정 3. 이 영화관 삭제 4. 이 영화관의 상영정보 보기 5. 새로운 상영정보 등록 6. 상영정보 수정 7. 상영정보 삭제 8. 목록으로 가기";
             optionMin = 1;
-            optionMax = 4;
+            optionMax = 7;
             int userChoice = ScannerUtil.nextInt(scanner, message, optionMin, optionMax);
             if (userChoice == 1) {
                 setNewTheaterObject();
-            }else if(userChoice == 2) {
+            } else if (userChoice == 2) {
                 update(id);
-            }else if(userChoice == 3) {
+            } else if (userChoice == 3) {
                 delete(id);
-            }else if(userChoice == 4) {
+            } else if (userChoice == 4) {
+                scheduleViewer.printList(id);
+            } else if (userChoice == 5) {
+                System.out.println("구현되지 않은 항목입니다.");
+            } else if (userChoice == 6) {
+                System.out.println("구현되지 않은 항목입니다.");
+            } else if (userChoice == 7) {
+                scheduleViewer.deleteByMovieId(id);
+            } else if (userChoice == 8) {
                 showTheaterMenu();
             }
-            
+
+        } else {
+
+            message = "1. 이 영화관의 상영정보 보기 2. 뒤로가기";
+            optionMin = 1;
+            optionMax = 2;
+
+            int userChoice = ScannerUtil.nextInt(scanner, message, optionMin, optionMax);
+            if (userChoice == 1) {
+
+                scheduleViewer.printList(id);
+
+            } else if (userChoice == 2) {
+                showTheaterMenu();
+            }
         }
-        else {
-            
-            
-            
-            
-        }
-        
-        */
     }
 
     private void setNewTheaterObject() {
@@ -144,7 +179,6 @@ public class theaterViewer {
         String yesNo = ScannerUtil.nextLine(scanner, message);
         if (yesNo.equalsIgnoreCase("Y")) {
             theaterController.delete(id);
-
             showTheaterMenu();
         } else {
 
