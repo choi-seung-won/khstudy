@@ -1,6 +1,7 @@
 package viewer;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import controller.UserController;
 import model.UserDTO;
@@ -8,43 +9,23 @@ import util.ScannerUtil;
 
 public class UserViewer {
 
-    public void setMovieViewer(MovieViewer movieViewer) {
-        this.movieViewer = movieViewer;
-    }
-
-    public void setRatingViewer(RatingViewer ratingViewer) {
-        this.ratingViewer = ratingViewer;
-    }
-
-    public void setTheaterViewer(TheaterViewer theaterViewer) {
-        this.theaterViewer = theaterViewer;
-    }
-
-    public void setShowViewer(ShowViewer showViewer) {
-        this.showViewer = showViewer;
-    }
-
+    // viewer추가시마다 초기화할 테이블
     public UserViewer() {
         userController = new UserController();
     }
 
-    private MovieViewer movieViewer;
-    private RatingViewer ratingViewer;
-    private TheaterViewer theaterViewer;
-    private ShowViewer showViewer;
+    // 선언테이블
+    private UserController userController;
     private Scanner scanner;
 
-    private UserController userController;
-    private UserDTO logIn;// privatevoid logIn의 auth를 체크했을경우 넘겨지는 data기록
+    private UserDTO logIn;
 
     public void setLogIn(UserDTO logIn) {
         this.logIn = logIn;
     }
 
     public void setScanner(Scanner scanner) {
-
         this.scanner = scanner;
-
     }
 
     public void showIndex() {
@@ -52,9 +33,7 @@ public class UserViewer {
         while (true) {
             int userChoice = ScannerUtil.nextInt(scanner, message, 1, 3);
             if (userChoice == 1) {
-
                 logIn();
-
                 if (logIn != null) {
                     showMenu();
                 }
@@ -82,16 +61,17 @@ public class UserViewer {
             if (username.equalsIgnoreCase("X")) {
                 break;
             }
-
             password = ScannerUtil.nextLine(scanner, password);
         }
 
         logIn = userController.auth(username, password);
         if (logIn != null) {
-            movieViewer.setLogIn(logIn);
-            ratingViewer.setLogIn(logIn);
-            showViewer.setLogIn(logIn);
-            theaterViewer.setLogIn(logIn);
+            // 연결할Viewer들의 setLogIn처리
+
+            // movieViewer.setLogIn(logIn);
+            // ratingViewer.setLogIn(logIn);
+            // showViewer.setLogIn(logIn);
+            // theaterViewer.setLogIn(logIn);
         }
     }
 
@@ -102,52 +82,51 @@ public class UserViewer {
         while (userController.validateUsername(username) && !username.equalsIgnoreCase("X")) {
             System.out.println("잘못 입력하셨습니다.");
             username = ScannerUtil.nextLine(scanner, usernameMsg);
-
         }
-
         if (!username.equalsIgnoreCase("X")) {
 
             String passwordMsg = "사용하실 비밀번호를 입력해주세요.";
             String password = ScannerUtil.nextLine(scanner, passwordMsg);
             String nicknameMsg = "사용하실 닉네임을 입력해주세요.";
             String nickname = ScannerUtil.nextLine(scanner, nicknameMsg);
-            String categoryMsg = "회원 유형을 입력해주세요.(1. 관리자 2. 평론가 3. 일반회원)";
-            int category = ScannerUtil.nextInt(scanner, categoryMsg, 1, 3);
 
             UserDTO u = new UserDTO();
-            u.setUsername(username);
-            u.setPassword(password);
-            u.setNickname(nickname);
-            u.setCategory(category);
+            u.setUserName(username);
+            u.setUserPassword(password);
+            u.setUserNickname(nickname);
+
+            u.setUserGrade(1); // 일반회원 고정
 
             userController.add(u);
 
         }
-
     }
 
     private void showMenu() {
         String message;
 
-        if (logIn.getCategory() == 1) {
+        if (logIn.getUserGrade() == 3) {
             // 관리자일 경우
-            message = "1. 영화 관리 2. 극장 관리 3. 상영 정보 관리 4. 회원 정보 관리 5.  로그아웃";
+            message = "1.   2.   3.   4. 회원 정보 관리 5.  로그아웃";
+        } else if (logIn.getUserGrade() == 2) {
+            // 여행사용 등급일 경우
+            message = "1.   2.  색 3.   4. 자신 정보 관리 5. 로그아웃";
         } else {
-            // 그외일경우
-            message = "1. 영화 정보 검색 2. 극장 정보 검색 3. 상영 정보 검색 4. 회원 정보 관리 5. 로그아웃";
+            // 일반회원의 경우
+            message = "1. ";
         }
 
         while (logIn != null) {
-            int userChoice = ScannerUtil.nextInt(scanner, message);
+            int userChoice = ScannerUtil.nextInt(scanner, message, 1, 5);
 
             if (userChoice == 1) {
-                movieViewer.showMenu();
+
             } else if (userChoice == 2) {
-                theaterViewer.showMenu();
+
             } else if (userChoice == 3) {
-                showViewer.showMenu();
+
             } else if (userChoice == 4) {
-                showUserMenu();
+
             } else if (userChoice == 5) {
                 System.out.println("정상적으로 로그아웃 되었습니다.");
                 logIn = null;
@@ -155,54 +134,80 @@ public class UserViewer {
         }
 
     }
-
-    private void showUserMenu() {
-        printOne();
-
-        String message = "1. 정보 수정 2. 탈퇴 3. 뒤로 가기";
-        int userChoice = ScannerUtil.nextInt(scanner, message);
-        if (userChoice == 1) {
-            updateUserInfo();
-        } else if (userChoice == 2) {
-            deleteUserInfo();
-        }
-    }
-
+    
     private void printOne() {
         System.out.println("\n----------------------------------------");
-        System.out.println(logIn.getUsername() + "회원님의 정보");
+        System.out.println(logIn.getUserName() + "회원님의 정보");
         System.out.println("==========================================");
-        System.out.println("닉네임: " + logIn.getNickname());
+        System.out.println("닉네임: " + logIn.getUserNickname());
         System.out.println("회원 등급: ");
-        switch (logIn.getCategory()) {
+        switch (logIn.getUserGrade()) {
         case 1:
-            System.out.println("관리자");
+            System.out.println("일반 회원");
             break;
         case 2:
-            System.out.println("전문 평론가");
+            System.out.println("여행사용 등급");
             break;
         case 3:
-            System.out.println("일반 회원");
+            System.out.println("관리자");
             break;
         }
 
         System.out.println("----------------------------------------\n");
     }
 
+    private void showUserMenu() {
+        printOne();
+        int userChoice = 0;
+        String message = "";
+        if (logIn.getUserGrade() == 3) {
+            message = "1. 정보 수정 2. 탈퇴 3. 타 회원 정보변경 4. 뒤로 가기";
+            userChoice = ScannerUtil.nextInt(scanner, message);
+            if (userChoice == 1) {
+                updateUserInfo();
+            } else if (userChoice == 2) {
+                deleteUserInfo();
+            } else if (userChoice == 3) {
+                printAllUserInfo();
+                message = "1. 회원 정보 수정 2. 신청자 등급 변경 3. 뒤로 가기";
+                userChoice = ScannerUtil.nextInt(scanner, message, 1, 3);
+                if(userChoice == 1) {
+                    message = "정보를 수정할 회원을 선택하거나 0을 입력.";
+                    userChoice = ScannerUtil.nextInt(scanner, message);
+                    if(userChoice != 0) {
+                        setPromotion(userChoice);
+                    }
+                }else if(userChoice == 2) {
+                    
+                }
+            }
+        } else {
+            message = "1. 정보 수정 2. 탈퇴 3. 뒤로 가기";
+            userChoice = ScannerUtil.nextInt(scanner, message, 1, 3);
+            if (userChoice == 1) {
+                updateUserInfo();
+            } else if (userChoice == 2) {
+                deleteUserInfo();
+            }
+
+        }
+    }
+
     private void updateUserInfo() {
         UserDTO u = new UserDTO(logIn);
 
         String message = "사용하실 닉네임을 입력해주세요.";
-        u.setNickname(ScannerUtil.nextLine(scanner, message));
+
+        u.setUserNickname(ScannerUtil.nextLine(scanner, message));
 
         message = "사용하실 비밀번호를 입력해주세요.";
 
-        u.setPassword(ScannerUtil.nextLine(scanner, message));
+        u.setUserPassword(ScannerUtil.nextLine(scanner, message));
 
         userController.update(u);
 
         logIn = u;
-        
+
         showUserMenu();
 
     }
@@ -219,13 +224,33 @@ public class UserViewer {
             showUserMenu();
         }
     }
-    public void printNickname(int id) {
-        UserDTO u = userController.selectOne(id);
-        System.out.print(u.getNickname());
+
+    public int selectGradeById(int id) {
+        return userController.selectOne(id).getUserGrade();
     }
     
-    public int selectCategoryById(int id) {
-        return userController.selectOne(id).getCategory();
+    private void printAllUserInfo() {
+        
+        ArrayList<UserDTO> list = userController.selectAll();
+        for(UserDTO u : list) {
+            System.out.printf("회원 ID: %s , 회원 비밀번호: %s , 회원 닉네임: %s, 회원 등급: %s", 
+                    u.getUserName(),u.getUserPassword(),u.getUserNickname(),u.getUserGrade());
+        }
+        
+    }
+    
+    private void setPromotion(int id) {
+        UserDTO u = new UserDTO();
+        if(id != 0) {
+            
+            String message = "promotion YesorNO";
+            String yesNo = ScannerUtil.nextLine(scanner, message);
+            
+            if(yesNo.equalsIgnoreCase("Y")) {
+                
+            }
+            
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 package controller;
 
 import model.ShowDTO;
+import model.TheaterDTO;
 
 import java.util.*;
 
@@ -90,6 +91,16 @@ public class ShowController {
             }
         }
 
+    }
+
+    public ArrayList<ShowDTO> selectAll() {
+        ArrayList<ShowDTO> temp = new ArrayList<>();
+
+        for (ShowDTO s : list) {
+            temp.add(new ShowDTO(s));
+        }
+
+        return temp;
     }
 
 }

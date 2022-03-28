@@ -62,7 +62,7 @@ public class MovieViewer {
         while (true) {
             int userChoice = ScannerUtil.nextInt(scanner, message);
             if (userChoice == 1) {
-
+                printList();
             } else if (userChoice == 2) {
                 insertMovie();
             } else if (userChoice == 3) {
@@ -182,9 +182,9 @@ public class MovieViewer {
 
         message = "새로운 등급을 입력해주세요.(1. 전체이용가 2. 13세 미만 관람불가 3. 15세 미만 관람불가 4. 청소년 관람불가";
         m.setGrade(ScannerUtil.nextInt(scanner, message));
-        
+
         movieController.update(m);
-        
+
     }
 
     private void deleteMovieInfo(int id) {
@@ -193,10 +193,33 @@ public class MovieViewer {
 
         if (yesNo.equalsIgnoreCase("Y")) {
             movieController.delete(id);
+            showViewer.deleteShowByMovieid(id);
             printList();
         } else {
             printOne(id);
         }
     }
 
+    public void printTitle(int id) {
+        MovieDTO m = movieController.selectOne(id);
+        System.out.print(m.getTitle());
+    }
+
+    public int selectMovieId() {
+        ArrayList<MovieDTO> list = movieController.selectAll();
+
+        for (MovieDTO m : list) {
+            System.out.printf("%d. %s\n", m.getId(), m.getTitle());
+        }
+
+        String message = "등록할 영화의 번호를 입력해주세요.";
+        int userChoice = ScannerUtil.nextInt(scanner, message);
+        while (movieController.selectOne(userChoice) == null) {
+            System.out.println("잘못 입력하셨습니다.");
+
+            userChoice = ScannerUtil.nextInt(scanner, message);
+        }
+        return userChoice;
+    }
+    
 }

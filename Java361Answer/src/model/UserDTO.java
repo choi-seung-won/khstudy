@@ -49,14 +49,11 @@ public class UserDTO {
     }
 
     public boolean equals(Object o) {
-
         if (o instanceof UserDTO) {
             UserDTO u = (UserDTO) o;
-
             return this.id == u.id;
         }
         return false;
-
     }
 
     public UserDTO() {
