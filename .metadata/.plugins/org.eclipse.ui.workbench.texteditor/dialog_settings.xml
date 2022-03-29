@@ -6,29 +6,29 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="showV"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="update"/>
+			<item value="print"/>
+			<item value="log"/>
+			<item value="ratingV"/>
+			<item value="select"/>
+			<item value="list"/>
 			<item value="showV"/>
 			<item value="writerId"/>
 			<item value="writeRa"/>
 			<item value="writer"/>
 			<item value="admin"/>
-			<item value="select"/>
 			<item value="사용자"/>
 			<item value="printN"/>
-			<item value="print"/>
 			<item value="!= null"/>
 			<item value="viewer.print"/>
-			<item value="printList"/>
-			<item value="logIn"/>
-			<item value="class"/>
-			<item value="deleteBy"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="-7"/>
+		<item key="DIALOG_X_ORIGIN" value="8"/>
 		<item key="DIALOG_Y_ORIGIN" value="130"/>
 		<item key="DIALOG_WIDTH" value="322"/>
 		<item key="DIALOG_HEIGHT" value="391"/>

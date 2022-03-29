@@ -19,6 +19,7 @@ public class UserController {
             u.setUserPassword("1");
             u.setUserNickname("사용자" + i);
             u.setUserGrade(i); 
+            u.setPromotionWating(false);
 
             add(u);
         }
@@ -77,6 +78,28 @@ public class UserController {
             temp.add(new UserDTO(u));
         }
         return temp;
+    }
+    
+    public ArrayList<UserDTO> filterByRequest() {
+        //ArrayList<UserDTO> u1 = selectAll();
+        ArrayList<UserDTO> temp = new ArrayList<>();
+        for (UserDTO u : list) {
+            if (u.getPromotionWating() == true) {
+                temp.add(u);
+            }
+        }
+        return temp;
+    }
+    
+    public UserDTO selectById(int id) {
+        UserDTO temp = new UserDTO();
+        for(UserDTO u : list) {
+            if(u.getId() == id) {
+                temp = u;
+                return new UserDTO(temp); 
+            }
+        }
+        return null;
     }
     
 }

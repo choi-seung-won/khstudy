@@ -7,7 +7,17 @@ public class UserDTO {
     private String userPassword;
     private String userNickname;
     private int userGrade;
+    private boolean promotionWating;
     
+    public boolean getPromotionWating() {
+        return promotionWating;
+    }
+
+    public void setPromotionWating(boolean promotionWating) {
+        this.promotionWating = promotionWating;
+    }
+    
+
     public int getId() {
         return id;
     }
@@ -67,7 +77,7 @@ public class UserDTO {
         this.userPassword = u.userPassword;
         this.userNickname = u.userNickname;
         this.userGrade = u.userGrade;
-        
+        this.promotionWating = u.promotionWating;
     }
     
     
