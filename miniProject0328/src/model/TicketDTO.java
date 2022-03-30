@@ -9,7 +9,17 @@ public class TicketDTO {
     private String arrivalTime;
     private String seat;
     
+    
     private boolean reserved = false;//예약여부체크
+    private int reservedUserId;
+    
+    public int getReservedUserId() {
+        return reservedUserId;
+    }
+
+    public void setReservedUserId(int reservedUserId) {
+        this.reservedUserId = reservedUserId;
+    }
 
     public boolean getReserved() {
         return reserved;
@@ -88,6 +98,7 @@ public class TicketDTO {
         this.arrivalTime = t.arrivalTime;
         this.seat = t.seat;
         this.reserved = t.reserved;
+        this.reservedUserId = t.reservedUserId;
 
     }
 

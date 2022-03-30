@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="get"/>
 		<list key="findhistory">
-			<item value="update"/>
-			<item value="print"/>
-			<item value="log"/>
-			<item value="ratingV"/>
+			<item value="get"/>
+			<item value="getSiz"/>
+			<item value="티켓번호"/>
+			<item value="수정"/>
+			<item value="writeRat"/>
+			<item value="reserved"/>
+			<item value="viewer"/>
+			<item value="selectReserved"/>
+			<item value="rating"/>
+			<item value="filter"/>
+			<item value="selectAll"/>
+			<item value="movie"/>
 			<item value="select"/>
-			<item value="list"/>
-			<item value="showV"/>
-			<item value="writerId"/>
-			<item value="writeRa"/>
-			<item value="writer"/>
-			<item value="admin"/>
-			<item value="사용자"/>
-			<item value="printN"/>
-			<item value="!= null"/>
-			<item value="viewer.print"/>
+			<item value="selectAl"/>
+			<item value="logIn"/>
 		</list>
 		<list key="replacehistory">
 		</list>

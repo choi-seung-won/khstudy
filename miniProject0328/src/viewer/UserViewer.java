@@ -17,11 +17,40 @@ public class UserViewer {
     public void setTicketViewer(TicketViewer ticketViewer) {
         this.ticketViewer = ticketViewer;
     }
+    
+    public void setTicketingLogViewer(TicketingLogViewer ticketingLogViewer) {
+        this.ticketingLogViewer = ticketingLogViewer;
+    }
+    public void setRentCarViewer(RentCarViewer rentCarViewer) {
+        this.rentCarViewer = rentCarViewer;
+    }
+    
+    public void setRentCarLogViewer(RentCarLogViewer rentCarLogViewer) {
+        this.rentCarLogViewer = rentCarLogViewer;
+    }
+    
+    public void setHotelViewer(HotelViewer hotelViewer) {
+        this.hotelViewer = hotelViewer;
+    }
+    
+    public void setHotelRoomViewer(HotelRoomViewer hotelRoomViewer) {
+        this.hotelRoomViewer = hotelRoomViewer;
+    }
+    
+    public void setBookingLogViewer(BookingLogViewer bookingLogViewer) {
+        this.bookingLogViewer = bookingLogViewer;
+    }
 
     // 선언테이블
     private UserController userController;
     private Scanner scanner;
     private TicketViewer ticketViewer;
+    private TicketingLogViewer ticketingLogViewer;
+    private RentCarViewer rentCarViewer;
+    private RentCarLogViewer rentCarLogViewer;
+    private HotelViewer hotelViewer;
+    private HotelRoomViewer hotelRoomViewer;
+    private BookingLogViewer bookingLogViewer;
 
     private UserDTO logIn;
 
@@ -77,6 +106,7 @@ public class UserViewer {
         if (logIn != null) {
             // 연결할Viewer들의 setLogIn처리
             ticketViewer.setLogIn(logIn);
+            ticketingLogViewer.setLogIn(logIn);
             
             
         }
@@ -129,9 +159,9 @@ public class UserViewer {
             if (userChoice == 1) {
                 ticketViewer.showMenu();
             } else if (userChoice == 2) {
-
+                //RentCarViewer.
             } else if (userChoice == 3) {
-
+                //HotelViewer.
             } else if (userChoice == 4) {
                 showUserMenu();
             } else if (userChoice == 5) {

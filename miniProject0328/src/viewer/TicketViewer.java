@@ -11,6 +11,7 @@ public class TicketViewer {
 
     private UserDTO logIn;
     private UserViewer userViewer;
+    private TicketingLogViewer ticketingLogViewer;
 
     private TicketController ticketController;
 
@@ -26,6 +27,10 @@ public class TicketViewer {
         this.userViewer = userViewer;
     }
 
+    public void setTicketingLogViewer(TicketingLogViewer ticketingLogViewer) {
+        this.ticketingLogViewer = ticketingLogViewer;
+    }
+
     public TicketViewer() {
         ticketController = new TicketController();
     }
@@ -36,7 +41,7 @@ public class TicketViewer {
         if (userChoice == 1) {
             showTicketMenu();
         } else if (userChoice == 2) {
-
+            ticketingLogViewer.printAll(logIn.getId());
         } else if (userChoice == 3) {
 
         }
@@ -92,7 +97,7 @@ public class TicketViewer {
             userChoice = ScannerUtil.nextInt(scanner, message);
         }
         if (logIn.getUserGrade() == 1 && ticketController.filterByReserved(userChoice) == true) {
-            // 에러-사후처리
+            // 에러-해결
             System.out.println("이미 예약된 항목입니다.");
         } else if (userChoice != 0) {
             printOne(userChoice);
@@ -122,6 +127,7 @@ public class TicketViewer {
                     System.out.println("티켓에러처리");
                 } else {
                     t.setReserved(true);
+                    t.setReservedUserId(logIn.getId());
                     ticketController.update(t);
                     System.out.println("예약이 완료되었습니다.");
                 }
@@ -185,5 +191,22 @@ public class TicketViewer {
         ticketController.add(t);
 
     }
+
+    public int selectReservedId(int id) {
+        return ticketController.selectOne(id).getReservedUserId();
+    }
+    
+    public int returnUserId(int id) {
+        return ticketController.returnUserId(id);
+    }
+    
+    public int returnTicketId(int id) {
+        return ticketController.returnTicketId(id);
+    }
+    
+    public int getSizeofTicketArray(int id) {
+        return ticketController.returnsize(id);
+    }
+
 
 }

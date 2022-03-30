@@ -67,19 +67,36 @@ public class TicketController {
     }
     
     public boolean filterByReserved(int id){//에러
-        ArrayList<TicketDTO> temp;
         for(TicketDTO t : list) {
-            if(t.getReserved() == true) {
-                
+            if(t.getId() == id && t.getReserved() == true ) {
+                return true;
             }
         }
-        TicketDTO t = new TicketDTO();
-        t.setId(id);
-        if(t.getReserved() == true) {
-            return true;
-        }else {
-            return false;
-        }
+        return false;
     }
 
+    public int returnUserId(int id) {
+        //logIn.getid를 받음
+        for(TicketDTO t : list) {//max-size까지반복
+            if(t.getReservedUserId() == id) {//loginid와일치할경우
+                return t.getReservedUserId();
+            }
+        }
+        return 0;
+    }
+    
+    public int returnTicketId(int id) {
+        for(TicketDTO t : list) {
+            if(t.getReservedUserId() == id) {
+                return t.getId();
+            }
+        }
+        return 0;
+    }
+    
+    public int returnsize(int id) {
+        return list.size();
+    }
+    
+    
 }

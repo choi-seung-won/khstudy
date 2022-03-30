@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="homework.javatest"/>
-    <fullyQualifiedTypeName name="viewer.BoardViewer"/>
-    <fullyQualifiedTypeName name="model.CommentDTO"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="controller.BoardController"/>
-    <fullyQualifiedTypeName name="controller.ReplyController"/>
     <fullyQualifiedTypeName name="viewer.ReplyViewer"/>
     <fullyQualifiedTypeName name="model.ReplyDTO"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
@@ -42,22 +35,29 @@
     <fullyQualifiedTypeName name="day0328.ElementaryStudent"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="model.BoardDTO"/>
-    <fullyQualifiedTypeName name="model.rentCarDTO"/>
     <fullyQualifiedTypeName name="model.rentCarLogDTO"/>
-    <fullyQualifiedTypeName name="model.hotelDTO"/>
     <fullyQualifiedTypeName name="model.hotelRoomDTO"/>
     <fullyQualifiedTypeName name="model.bookingLogDTO"/>
     <fullyQualifiedTypeName name="controller.UserController"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="util.TicketViewer"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="model.UserDTO"/>
-    <fullyQualifiedTypeName name="controller.TicketController"/>
     <fullyQualifiedTypeName name="viewer.UserViewer"/>
-    <fullyQualifiedTypeName name="viewer.TicketViewer"/>
     <fullyQualifiedTypeName name="viewer.TicketingLogViewer"/>
+    <fullyQualifiedTypeName name="controller.TicketController"/>
+    <fullyQualifiedTypeName name="model.TicketDTO"/>
+    <fullyQualifiedTypeName name="viewer.RentCarViewer"/>
+    <fullyQualifiedTypeName name="viewer.RentCarLogViewer"/>
+    <fullyQualifiedTypeName name="viewer.HotelRoomViewer"/>
+    <fullyQualifiedTypeName name="viewer.BookingLogViewer"/>
+    <fullyQualifiedTypeName name="viewer.TicketViewer"/>
     <fullyQualifiedTypeName name="util.ScannerUtil"/>
     <fullyQualifiedTypeName name="controller.TicketingLogController"/>
     <fullyQualifiedTypeName name="model.TicketingLogDTO"/>
-    <fullyQualifiedTypeName name="model.TicketDTO"/>
+    <fullyQualifiedTypeName name="controller.RentCarController"/>
+    <fullyQualifiedTypeName name="model.rentCarDTO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="model.hotelDTO"/>
+    <fullyQualifiedTypeName name="viewer.HotelViewer"/>
+    <fullyQualifiedTypeName name="controller.HotelController"/>
 </qualifiedTypeNameHistroy>
