@@ -142,8 +142,8 @@ public class MovieViewer {
         case 4:
             System.out.println("청소년 관람 불가");
             break;
-
         }
+        
         System.out.println("=====================================\n");
         if (logIn.getCategory() == 1) {
             String message = "1. 영화 정보 수정 2. 영화 삭제 3. 목록으로 돌아가기";

@@ -46,6 +46,16 @@ public class TicketController {
         return null;
     }
     
+    public ArrayList<TicketDTO> selectReservedTicket(){
+        ArrayList<TicketDTO> temp = new ArrayList<>();
+        for(TicketDTO t : list) {
+            if(t.getReservedUserId() != 0) {
+                temp.add(new TicketDTO(t));
+            }
+        }
+        return temp;
+    }
+    
     public void update(TicketDTO t) {
         list.set(list.indexOf(t), t);
     }
@@ -94,7 +104,7 @@ public class TicketController {
         return 0;
     }
     
-    public int returnsize(int id) {
+    public int returnsize() {
         return list.size();
     }
     

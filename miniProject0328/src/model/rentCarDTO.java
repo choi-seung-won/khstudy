@@ -7,6 +7,25 @@ public class rentCarDTO {
     private String type;
     private String color;
 
+    private boolean reserved;
+    private int reservedUserId;
+    
+    public int getReservedUserId() {
+        return reservedUserId;
+    }
+
+    public void setReservedUserId(int reservedUserId) {
+        this.reservedUserId = reservedUserId;
+    }
+
+    public boolean getReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     public int getId() {
         return id;
     }
@@ -55,7 +74,8 @@ public class rentCarDTO {
         this.carId = r.carId;
         this.color = r.color;
         this.type = r.type;
-
+        this.reserved = r.reserved;
+        this.reservedUserId = r.reservedUserId;
     }
 
 }

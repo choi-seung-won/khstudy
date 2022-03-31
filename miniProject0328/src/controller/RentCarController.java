@@ -26,6 +26,26 @@ public class RentCarController {
         return temp;
     }
     
+    public ArrayList<rentCarDTO> filterByReserved(){
+        ArrayList<rentCarDTO> temp = new ArrayList<>();
+        for(rentCarDTO r : list) {
+            if(r.getReserved() == false) {
+                temp.add(r);
+            }
+        }
+        return temp;
+    }
+    
+    public boolean filterByReserved(int id) {
+        for(rentCarDTO r : list) {
+            if(r.getId() == id && r.getReserved() == true) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
     public rentCarDTO selectOne(int id) {
         for(rentCarDTO r : list) {
             if(r.getId() == id) {

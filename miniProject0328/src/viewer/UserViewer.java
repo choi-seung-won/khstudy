@@ -410,4 +410,5 @@ public class UserViewer {
      * ArrayList<>(); for (UserDTO u : list) { if (u.getPromotionWating() == true) {
      * temp.add(u); } } return temp; }
      */
+    
 }

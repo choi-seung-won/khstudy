@@ -1,8 +1,13 @@
 package viewer;
 
-import java.util.Scanner;
+import java.text.*;
+import java.util.*;
 
 import model.UserDTO;
+import model.rentCarDTO;
+import model.rentCarLogDTO;
+import util.ScannerUtil;
+import controller.RentCarLogController;
 
 public class RentCarLogViewer {
     public void setUserViewer(UserViewer userViewer) {
@@ -42,6 +47,11 @@ public class RentCarLogViewer {
     private BookingLogViewer bookingLogViewer;
 
     private UserDTO logIn;
+    private rentCarDTO rentCarDTO;
+    private rentCarLogDTO rentCarLogDTO;
+    private RentCarLogController rentCarLogController;
+    
+    
     
     public void setLogIn(UserDTO logIn) {
         this.logIn = logIn;
@@ -51,5 +61,16 @@ public class RentCarLogViewer {
 
         this.scanner = scanner;
 
+    }
+    
+    public void showMain() {
+        ArrayList<rentCarLogDTO> list;
+        String message = "";
+        int userChoice = 0;
+        if (logIn.getUserGrade() == 1) {
+            list = rentCarLogController.selectSpecific(userChoice);
+        }else {
+            list = rentCarLogController.selectAll();
+        }
     }
 }

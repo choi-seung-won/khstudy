@@ -6,6 +6,15 @@ public class bookingLogDTO {
     private int roomId;
     private String startDate;
     private String endDate;
+    private int hotelId;
+
+    public int getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
+    }
 
     public int getId() {
         return id;
@@ -57,6 +66,7 @@ public class bookingLogDTO {
         this.roomId = b.roomId;
         this.startDate = b.startDate;
         this.endDate = b.endDate;
+        this.hotelId = b.hotelId;
 
     }
 

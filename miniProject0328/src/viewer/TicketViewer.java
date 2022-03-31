@@ -36,12 +36,18 @@ public class TicketViewer {
     }
 
     public void showMenu() {// admin구분필요 x? 필요할수있음
+        
+            //ticketingLogViewer.updateLog(logIn.getId());// 중복호출시객체값중복
+        
         String message = "1. 항공권 보기 2. 항공권 예매기록 보기 3. 뒤로 가기";
-        int userChoice = ScannerUtil.nextInt(scanner, message, 1, 4);
+        int userChoice = ScannerUtil.nextInt(scanner, message, 1, 3);
         if (userChoice == 1) {
             showTicketMenu();
         } else if (userChoice == 2) {
-            ticketingLogViewer.printAll(logIn.getId());
+            // ticketingLogViewer.updateLogTest();//중복실행없이연동
+            // ticketingLogViewer.setReservedTicket();
+            // ticketingLogViewer.printAll(logIn.getId());
+            ticketingLogViewer.printSetValue();
         } else if (userChoice == 3) {
 
         }
@@ -129,6 +135,7 @@ public class TicketViewer {
                     t.setReserved(true);
                     t.setReservedUserId(logIn.getId());
                     ticketController.update(t);
+                    ticketingLogViewer.updateFromViewer(t.getId(), logIn.getId());
                     System.out.println("예약이 완료되었습니다.");
                 }
             }
@@ -193,20 +200,75 @@ public class TicketViewer {
     }
 
     public int selectReservedId(int id) {
-        return ticketController.selectOne(id).getReservedUserId();
+        if (ticketController.selectOne(id).getReservedUserId() != 0) {
+            return ticketController.selectOne(id).getReservedUserId();
+        } else {
+            return 0;
+        }
     }
-    
+
+    // selectAll에서reservedId를긁어와야함. logDTO와 datatype이다르므로 .getReserved~로추출?
+    public ArrayList<TicketDTO> selectReservedTicket(int id) {
+        return ticketController.selectReservedTicket();
+    }
+
+    public int setTemp(int id) {
+        ArrayList<TicketDTO> list = new ArrayList<>();
+        list = selectReservedTicket(id);
+        for (TicketDTO t : list) {
+            if (t.getReserved() != false) {
+                return t.getId();
+            }
+        }
+        return 0;
+    }
+
     public int returnUserId(int id) {
         return ticketController.returnUserId(id);
     }
-    
-    public int returnTicketId(int id) {
+
+    public int returnTicketId(int id) {// logIn.getid를파라미터로
         return ticketController.returnTicketId(id);
     }
-    
-    public int getSizeofTicketArray(int id) {
-        return ticketController.returnsize(id);
+
+    public int getSizeofTicketArray() {
+        return ticketController.returnsize();
     }
 
+    public ArrayList<TicketDTO> setTicketId() {
+        ArrayList<TicketDTO> list = ticketController.selectAll();
+        ArrayList<TicketDTO> temp = new ArrayList<TicketDTO>();
+        
+        for (TicketDTO t : list) {
+            if(t.getReservedUserId() == logIn.getId()) {
+                temp.add(new TicketDTO(t));
+            }
+        }
+        return temp;
+    }
+    
+    /*
+    public int getTicketId(int id) {
+        
+        ArrayList<TicketDTO> list = setTicketId();
+        for(TicketDTO t : list) {
+            if(t.getReservedUserId() == ticketingLogViewer.) {
+                return t.getId();
+            }
+        }
+        
+    }
+    */
 
+    public int getReserverdTicketSize(){
+        ArrayList<TicketDTO> list = ticketController.selectAll();
+        ArrayList<TicketDTO> temp = new ArrayList<TicketDTO>();
+        for(TicketDTO t : list) {
+            if(t.getReservedUserId() != 0) {
+                temp.add(new TicketDTO(t));
+            }
+        }
+        return temp.size();
+    }
+    
 }

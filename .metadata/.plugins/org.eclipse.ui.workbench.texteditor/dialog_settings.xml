@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="get"/>
+		<item key="selection" value="rentCar"/>
 		<list key="findhistory">
-			<item value="get"/>
-			<item value="getSiz"/>
+			<item value="rentCar"/>
+			<item value="고유번호"/>
 			<item value="티켓번호"/>
+			<item value="updateLogTest"/>
+			<item value="update"/>
+			<item value="updateLog"/>
+			<item value="runtime"/>
+			<item value="입력해"/>
+			<item value="add()"/>
+			<item value="아이디나"/>
+			<item value="edit"/>
+			<item value="일정 수정"/>
 			<item value="수정"/>
-			<item value="writeRat"/>
-			<item value="reserved"/>
-			<item value="viewer"/>
-			<item value="selectReserved"/>
-			<item value="rating"/>
-			<item value="filter"/>
-			<item value="selectAll"/>
-			<item value="movie"/>
-			<item value="select"/>
-			<item value="selectAl"/>
-			<item value="logIn"/>
+			<item value="selectReservedId"/>
+			<item value="selectReser"/>
 		</list>
 		<list key="replacehistory">
 		</list>
